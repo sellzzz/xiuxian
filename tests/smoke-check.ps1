@@ -56,7 +56,7 @@ foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards
   }
 }
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('grantArtifact', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave')) {
+foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
   }
