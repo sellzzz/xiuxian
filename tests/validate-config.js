@@ -30,6 +30,9 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
 
 for (const [eventType, branches] of Object.entries(config.artifactRewards || {})) {
   if (!branches || typeof branches !== 'object') throw new Error(`invalid artifact reward rule: ${eventType}`);
+  for (const side of Object.keys(branches)) {
+    if (!['left', 'right'].includes(side)) throw new Error(`invalid artifact reward direction: ${eventType}.${side}`);
+  }
   for (const side of ['left', 'right']) {
     if (!(side in branches)) continue;
     const rewards = Array.isArray(branches[side]) ? branches[side] : [branches[side]];
