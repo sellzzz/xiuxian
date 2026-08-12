@@ -39,7 +39,7 @@ $markers = @(
   'styles/ui-overrides.css',
   'config/story-config.js',
   'src/app.js',
-  'config/story-config.js?v=2',
+  'config/story-config.js?v=3',
   'src/app.js?v=75',
   'id="artifactRack"',
   'id="relationModal"',
@@ -66,7 +66,7 @@ foreach ($marker in @('active:', 'cost:{qi:12}', 'cooldown:3')) {
 }
 
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
-foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'eventConditions:', 'artifactRewards:', 'resonances:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'eventConditions:', 'artifactRewards:', 'resonances:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'heartMirror:', 'heartMoon:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing story config marker: $marker"
   }
