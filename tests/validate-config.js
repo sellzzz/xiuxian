@@ -15,6 +15,9 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
   if (!artifact || typeof artifact !== 'object') throw new Error(`invalid artifact: ${id}`);
   if (!artifact.name) throw new Error(`artifact missing name: ${id}`);
   if (!artifact.icon && !artifact.image) throw new Error(`artifact missing icon/image: ${id}`);
+  if (artifact.image && !fs.existsSync(path.join(__dirname, '..', artifact.image))) {
+    throw new Error(`artifact image not found: ${id} -> ${artifact.image}`);
+  }
   for (const field of numericFields) {
     if (field in artifact && !Number.isFinite(Number(artifact[field]))) {
       throw new Error(`artifact field must be numeric: ${id}.${field}`);
