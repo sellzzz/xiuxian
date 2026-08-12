@@ -6,6 +6,7 @@ const events=[
  {type:'古洞机缘',title:'瀑布后的石门显出古老符文',copy:'符文在召唤你的神识。门后可能是前辈遗藏，也可能是沉睡千年的妖兽。',quote:'“大道从不把答案写在门外。”',left:'探查石门',right:'记录符文',a:{hp:-12,qi:35},b:{qi:12,fame:5}},
  {type:'红尘试炼',title:'凡间城主求你降一场及时雨',copy:'山下三年未有甘霖。只需一场法术，便可救活千万亩庄稼，但会消耗你的本命灵力。',quote:'“修行不是离开众生，而是更懂众生。”',left:'施法降雨',right:'继续赶路',a:{qi:-18,fame:22,hp:-3},b:{fame:-15,stone:10}},
  {type:'心魔低语',title:'你在梦中看见了另一个自己',copy:'他拥有更高境界、更强法宝，只要你交出一缕道心，便能交换一夜顿悟。',quote:'“捷径的尽头，往往没有路。”',left:'斩断心魔',right:'接受交易',a:{hp:12,fame:8,heart:6},b:{qi:45,hp:-25,fame:-10,heart:-12},statusRight:'heartDemon'},
+ {type:'定心试炼',minYear:12,requiresConfiguredArtifact:'heartMirror',weight:1.8,title:'定心玉映出一缕陌生魔念',copy:'玉中倒映的不是你的脸，而是一个正在青云宗内寻找宿主的魔念。它愿意告诉你一处秘藏，也可能借机侵入你的识海。',quote:'“看见心魔并不等于战胜它，真正的定力是仍然握着选择。”',left:'以道心镇压',right:'顺势追踪魔念',a:{heart:10,qi:8,fame:4},b:{hp:-10,qi:28,fame:9},statusRight:'inspiration'},
  {type:'杂役差事',title:'药园里钻出了成群噬灵虫',copy:'管事命你在日落前清理干净。徒手抓虫省钱，却可能被毒刺所伤。',quote:'“杂役的命，也得自己珍惜。”',left:'购买驱虫散',right:'徒手清理',a:{stone:-8,fame:8,qi:6},b:{hp:-14,stone:6,fame:5}},
  {type:'外门讲法',title:'外门师兄偷偷售卖听课名额',copy:'十块灵石便能在窗外旁听一夜。你也可以省下灵石，独自研读练气决。',quote:'“有人指路，总比闭门造车快。”',left:'独自参悟',right:'买下名额',a:{qi:10,heart:4},b:{stone:-10,qi:24,fame:3}},
  {type:'同门欺凌',title:'外门弟子踢翻了你的糙米',copy:'他嫌杂役挡路，扬言再看一眼便废掉你的经脉。周围弟子都在看你如何反应。',quote:'“忍一时，还是争一口气？”',left:'忍气收拾',right:'挺身反抗',a:{heart:-8,hp:5},b:{hp:-18,fame:16,heart:8}},

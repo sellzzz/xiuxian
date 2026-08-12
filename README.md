@@ -41,6 +41,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 事件还支持 `requiresConfiguredArtifact:'moonLamp'`，只有获得指定配置法宝后才会进入卡池；适合编写法宝专属支线。
 
+当前示例中，获得 `heartMirror` 后，修行第 12 年起会进入“定心试炼”专属卡牌；法宝收集会因此改变后续卡池，而不只是提供被动属性。
+
 后续剧情也可以用 `QingyunStoryAPI.setEventCondition('外门讲法',{minYear:3,requiresTalent:true})` 覆盖卡牌条件；支持年份、境界、人物、法宝、灵根、道途和状态等字段。使用 `removeEventCondition()` 可恢复默认条件。
 
 编写后续剧情时可调用只读接口 `QingyunStoryAPI.artifactCatalog()`，获得每件法宝的 ID、名称、是否已获得、是否有主动技能及关联共鸣 ID，适合用来生成剧情条件、提示文本或调试面板。
