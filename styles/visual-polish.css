@@ -1,0 +1,11 @@
+.status{position:relative;overflow:hidden;background:linear-gradient(120deg,#fbf5e9e8,#f1e6d5d9);border-radius:6px;backdrop-filter:blur(8px)}
+.status:after{content:'天道';position:absolute;right:20px;bottom:-35px;font-size:100px;font-weight:900;color:#b789450d;pointer-events:none}
+.status-title small{max-width:210px;line-height:1.6}
+.chronicle-head span{padding:6px 10px;border:1px solid #e2d3bf;background:#faf5ed;border-radius:20px;transition:.25s}
+.card-wrap{animation:cardFloat 4s ease-in-out infinite}
+.decision-card{box-shadow:0 22px 45px #64472d2b,0 0 0 7px #f6efe433;transition:transform .3s,opacity .3s,box-shadow .25s}
+.decision-card:hover{box-shadow:0 26px 50px #64472d35,0 0 0 7px #d7b8752b}
+.side-choice{box-shadow:0 8px 20px #64472d12}
+.side-choice:active{transform:scale(.94)!important}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(max-width:760px){.status{padding:17px 18px}.status:after{right:4px}.decision-card{box-shadow:0 16px 30px #64472d2b,0 0 0 5px #f6efe433}.card-wrap{animation:none}}
