@@ -19,6 +19,7 @@
 window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
   influenceRules: {},
+  artifactRewards: {},
   artifacts: {
     moonLamp: {name:'月魄灯', icon:'灯', hint:'静心法宝 · 尚未纳入主线', description:'可作为支线奖励的配置示例。', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3}
   }

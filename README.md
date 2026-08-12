@@ -31,3 +31,5 @@ python -m http.server 8877 --bind 127.0.0.1
 新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。
 
 配置中的 `moonLamp` 是一个不会自动发放的示例，可用 `QingyunStoryAPI.grantArtifact('moonLamp')` 测试法宝栏位和属性效果。
+
+剧情奖励可在 `artifactRewards` 中按“卡牌类型 + left/right”配置，例如 `{ '古洞机缘': { right: 'moonLamp' } }`；玩家选择该方向时会自动获得法宝。
