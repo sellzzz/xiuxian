@@ -43,7 +43,8 @@ $markers = @(
   'id="relationModal"',
   'id="musicToggle"',
   'id="artifactInspector"',
-  'id="removeArtifactButton"'
+  'id="removeArtifactButton"',
+  'id="useArtifactButton"'
 )
 foreach ($marker in $markers) {
   if ($html.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
@@ -52,13 +53,13 @@ foreach ($marker in $markers) {
 }
 
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
-foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'breakthroughBonus:', 'meditationScale:')) {
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing story config marker: $marker"
   }
 }
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact')) {
+foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'tickArtifactCooldowns')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
   }

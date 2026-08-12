@@ -26,6 +26,21 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
   if ('meditationScale' in artifact && Number(artifact.meditationScale) <= 0) {
     throw new Error(`artifact meditationScale must be positive: ${id}`);
   }
+  if (artifact.active) {
+    if (typeof artifact.active !== 'object') throw new Error(`invalid artifact active rule: ${id}`);
+    if (artifact.active.cost && typeof artifact.active.cost !== 'object') throw new Error(`invalid artifact active cost: ${id}`);
+    if (artifact.active.effect && typeof artifact.active.effect !== 'object') throw new Error(`invalid artifact active effect: ${id}`);
+    if ('cooldown' in artifact.active && (!Number.isFinite(Number(artifact.active.cooldown)) || Number(artifact.active.cooldown) <= 0)) {
+      throw new Error(`artifact active cooldown must be positive: ${id}`);
+    }
+    for (const [kind, values] of [['cost', artifact.active.cost], ['effect', artifact.active.effect]]) {
+      if (!values) continue;
+      for (const [key, value] of Object.entries(values)) {
+        if (!Number.isFinite(Number(value))) throw new Error(`artifact active ${kind} must be numeric: ${id}.${key}`);
+        if (kind === 'cost' && Number(value) < 0) throw new Error(`artifact active cost must be non-negative: ${id}.${key}`);
+      }
+    }
+  }
 }
 
 for (const [eventType, branches] of Object.entries(config.artifactRewards || {})) {

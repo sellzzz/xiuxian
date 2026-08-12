@@ -21,6 +21,6 @@ window.QINGYUN_STORY_OVERRIDES = {
   influenceRules: {},
   artifactRewards: {},
   artifacts: {
-    moonLamp: {name:'月魄灯', icon:'灯', hint:'静心法宝 · 尚未纳入主线', description:'可作为支线奖励的配置示例。', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3}
+    moonLamp: {name:'月魄灯', icon:'灯', hint:'静心法宝 · 尚未纳入主线', description:'可作为支线奖励的配置示例。', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3, active:{label:'安神照魄', hint:'消耗 12 灵力，恢复 8 道心；冷却 3 回合。', cost:{qi:12}, effect:{heart:8}, cooldown:3}}
   }
 };
