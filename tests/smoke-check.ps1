@@ -39,6 +39,8 @@ $markers = @(
   'styles/ui-overrides.css',
   'config/story-config.js',
   'src/app.js',
+  'config/story-config.js?v=2',
+  'src/app.js?v=9',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
