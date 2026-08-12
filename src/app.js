@@ -638,7 +638,8 @@ normalizeArtifactCooldowns();
 function compactLoadLogs(){if(!state?.log)return;const seen=new Set();state.log=state.log.filter(entry=>{if(typeof entry?.text!=='string'||!entry.text.includes('读取自动存档'))return true;if(seen.has(entry.text))return false;seen.add(entry.text);return true});const log=$('log');if(log)log.innerHTML=state.log.slice(0,6).map(entry=>`<div class="log-item"><time>${entry.time}</time>${entry.text}</div>`).join('');saveGame()}
 compactLoadLogs();
 const saveGameBase=saveGame;
-saveGame=function(){const status=$('saveStatus');status?.setAttribute('aria-busy','true');saveGameBase();setTimeout(()=>status?.setAttribute('aria-busy','false'),240)};
+let saveFeedbackToken=0;
+saveGame=function(){const status=$('saveStatus'),token=++saveFeedbackToken;if(status){status.setAttribute('aria-busy','true');status.textContent='● 保存中'}saveGameBase();setTimeout(()=>{if(token!==saveFeedbackToken)return;if(status){status.setAttribute('aria-busy','false');if(status.textContent!=='存档不可用')status.textContent='● 已保存'}},240)};
 const bindDragBase=bindDrag;
 let boundDragCard=null;
 bindDrag=function(){const card=$('cardWrap')?.querySelector('.decision-card');if(!card||card===boundDragCard)return;boundDragCard=card;bindDragBase()};
