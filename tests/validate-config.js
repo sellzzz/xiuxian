@@ -60,4 +60,17 @@ for (const [eventType, branches] of Object.entries(config.artifactRewards || {})
   }
 }
 
+for (const [id, resonance] of Object.entries(config.resonances || {})) {
+  if (!resonance || typeof resonance !== 'object') throw new Error(`invalid artifact resonance: ${id}`);
+  if (!resonance.name) throw new Error(`artifact resonance missing name: ${id}`);
+  if (!Array.isArray(resonance.requires) || !resonance.requires.length) throw new Error(`artifact resonance missing requirements: ${id}`);
+  for (const required of resonance.requires) {
+    if (typeof required !== 'string' || !config.artifacts[required]) throw new Error(`unknown artifact resonance requirement: ${id} -> ${required}`);
+  }
+  for (const field of numericFields) {
+    if (field in resonance && !Number.isFinite(Number(resonance[field]))) throw new Error(`artifact resonance field must be numeric: ${id}.${field}`);
+  }
+  if ('meditationScale' in resonance && Number(resonance.meditationScale) <= 0) throw new Error(`artifact resonance meditationScale must be positive: ${id}`);
+}
+
 console.log(`Config validation passed: ${Object.keys(config.artifacts || {}).length} artifacts.`);

@@ -60,13 +60,13 @@ foreach ($marker in @('active:', 'cost:{qi:12}', 'cooldown:3')) {
 }
 
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
-foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'resonances:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing story config marker: $marker"
   }
 }
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'showArtifactActivation', 'showArtifactAcquisition', 'tickArtifactCooldowns', 'useArtifact(id)', 'artifactCooldowns?.[id]', 'active.label', 'SAVE_VERSION=5', 'LEGACY_MUSIC_VOLUME_KEY', 'music-volume-v2')) {
+foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'artifactResonanceMarkup', 'activeArtifactResonances', 'resonances:artifactResonanceOverrides', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'showArtifactActivation', 'showArtifactAcquisition', 'tickArtifactCooldowns', 'useArtifact(id)', 'artifactCooldowns?.[id]', 'active.label', 'SAVE_VERSION=5', 'LEGACY_MUSIC_VOLUME_KEY', 'music-volume-v2')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
   }
