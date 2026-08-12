@@ -32,6 +32,7 @@ python -m http.server 8877 --bind 127.0.0.1
 新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。栏位按实际数量增长并支持滚动查看。当前存档格式为第 5 版，旧存档会自动迁移。
 
 宗门任务支持连勤：连续领取完成 3 个任务会额外获得 5 点贡献，连勤次数会写入存档并在任务栏显示。
+连续完成 9 个任务会解锁成就“勤修不辍”；`QingyunStoryAPI.diagnostics().questStreak` 可读取当前连勤次数。
 
 顶部“备份”可下载当前 JSON 存档；“导入”会在确认后读取备份并自动迁移旧版本，适合换设备或清理浏览器数据前保存进度。
 
