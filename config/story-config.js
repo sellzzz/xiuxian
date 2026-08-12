@@ -20,6 +20,8 @@ window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
   influenceRules: {},
   eventConditions: {},
+  // 可调整道途面板的预计节点年份；只影响提示，不会改变事件本身的触发规则。
+  journeyYears: {promotion:7, trial:13, tribulation:17, inner:20, foundation:30, succession:60, demonRealm:70, ascension:82},
   artifactRewards: {'古洞机缘': {right: 'moonLamp'}, '后山巡夜': {right: 'beastHorn'}, '秘境裂隙': {right: 'frostNeedle'}, '万宝商舟': {left: 'spiritGourd'}, '古战场残魂': {left: 'warBanner', right: 'cloudSeal'}, '法宝器灵': {right: 'starCompass'}, '心魔低语': {left: 'heartMirror'}},
   resonances: {
     moonHorn: {name:'月角同鸣', requires:['moonLamp','beastHorn'], description:'月华与兽魂相互牵引：战力 +5、气血恢复 +1、打坐效率 +5%。', combatBonus:5, recovery:1, meditationScale:1.05},
