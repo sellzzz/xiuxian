@@ -46,6 +46,7 @@ $markers = @(
   'id="importSaveButton"',
   'id="importSaveInput"',
   'id="artifactInspector"',
+  'role="progressbar"',
   'id="removeArtifactButton"',
   'id="useArtifactButton"'
 )
