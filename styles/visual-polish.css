@@ -1,4 +1,5 @@
 .status{position:relative;overflow:hidden;background:linear-gradient(120deg,#fbf5e9e8,#f1e6d5d9);border-radius:6px;backdrop-filter:blur(8px)}
+body{overflow-x:hidden}
 .status:after{content:'天道';position:absolute;right:20px;bottom:-35px;font-size:100px;font-weight:900;color:#b789450d;pointer-events:none}
 .status-title small{max-width:210px;line-height:1.6}
 .chronicle-head span{padding:6px 10px;border:1px solid #e2d3bf;background:#faf5ed;border-radius:20px;transition:.25s}
