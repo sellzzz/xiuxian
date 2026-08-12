@@ -28,7 +28,7 @@ python -m http.server 8877 --bind 127.0.0.1
 
 页面加载后可通过 `window.QingyunStoryAPI` 调整运行时规则；长期剧情配置优先写入 `config/story-config.js`，避免直接修改核心循环。调试剧情时可调用 `QingyunStoryAPI.diagnostics()` 查看当前章节、寿元、境界、法宝和好感度。
 
-新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。
+新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。当前存档格式为第 4 版，旧存档会自动迁移。
 
 配置中的 `moonLamp` 是一个不会自动发放的示例，可用 `QingyunStoryAPI.grantArtifact('moonLamp')` 测试法宝栏位和属性效果。
 

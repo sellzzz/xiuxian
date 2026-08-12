@@ -192,7 +192,7 @@ function openRelationshipBook(){if(!state.inventory?.relationshipBook){$('status
 function inspectArtifact(id){if(id==='relationshipBook'){openRelationshipBook();return}const item=artifactRackItems().find(entry=>entry.id===id);if(item)$('statusMessage').textContent=`${item.name}：${item.hint}。`}
 function closeRelationshipBook(){$('relationModal').classList.add('hidden')}
 function resolveRelationshipBookDiscovery(side){state.inventory.relationshipBook=1;addLog(side==='left'?'<strong>偶得主线道具 · 人缘册。</strong>藏书阁执事认不出旧册来历，嫌它晦气，又将它丢回你怀里。':'<strong>偶得主线道具 · 人缘册。</strong>你拂去封皮灰尘，将这册会自行记载人情因果的旧书留在身边。');$('statusMessage').textContent='人缘册已出现在画面左侧，可随时翻阅。'}
-const SAVE_KEY='qingyun-cultivation-save-v2',META_KEY='qingyun-cultivation-meta-v1',MUSIC_VOLUME_KEY='qingyun-music-volume-v1',MUSIC_ENABLED_KEY='qingyun-music-enabled-v1',SAVE_VERSION=3;
+const SAVE_KEY='qingyun-cultivation-save-v2',META_KEY='qingyun-cultivation-meta-v1',MUSIC_VOLUME_KEY='qingyun-music-volume-v1',MUSIC_ENABLED_KEY='qingyun-music-enabled-v1',SAVE_VERSION=4;
 const legacyBoons={spirit:{name:'灵息玉',desc:'初始灵力 +20'},body:{name:'护命符',desc:'初始气血 +15 · 寿元 +5'},wealth:{name:'百宝囊',desc:'初始灵石 +18 · 声望 +8'}};let meta;
 const endingCatalog=[
  {id:'qingyunAncestor',title:'青云道祖',hint:'以掌教之身平魔域、兴宗门后飞升',epilogue:'三十六峰钟声追着你越过天门，青云宗从此把你的名字写在历代祖师之前。'},
