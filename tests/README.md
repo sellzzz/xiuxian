@@ -11,3 +11,12 @@
 - 音乐开关、音量、打坐动画和背景图不报错。
 - `node --check src/app.js` 通过，CSS 括号平衡。
 
+## 自动检查
+
+在项目根目录运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tests/smoke-check.ps1
+```
+
+该检查会验证关键目录、页面节点、脚本语法和 CSS 花括号，适合每次新增剧情或法宝后快速回归。
