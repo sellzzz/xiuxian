@@ -669,3 +669,7 @@ const showSystemBase=showSystem;
 showSystem=function(){const panel=$('systemPanel'),scrollTop=panel?.scrollTop||0;showSystemBase();if(panel)panel.scrollTop=scrollTop};
 let resumeMusicOnVisible=false;
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){resumeMusicOnVisible=musicPlaying;if(musicPlaying)stopMusic()}else if(resumeMusicOnVisible&&musicEnabled){resumeMusicOnVisible=false;startMusic()}});
+const getAudioBase=getAudio;
+getAudio=function(){try{return getAudioBase()}catch(error){audioContext=null;return null}};
+const toneBase=tone;
+tone=function(...args){try{return toneBase(...args)}catch(error){return null}};
