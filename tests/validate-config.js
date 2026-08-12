@@ -20,6 +20,9 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
       throw new Error(`artifact field must be numeric: ${id}.${field}`);
     }
   }
+  if ('meditationScale' in artifact && Number(artifact.meditationScale) <= 0) {
+    throw new Error(`artifact meditationScale must be positive: ${id}`);
+  }
 }
 
 console.log(`Config validation passed: ${Object.keys(config.artifacts || {}).length} artifacts.`);
