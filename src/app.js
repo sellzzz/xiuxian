@@ -629,6 +629,8 @@ function bindDrag(){const card=$('cardWrap').querySelector('.decision-card'),pre
 assignQuest=function(){const previous=state.quest?.key,candidates=questTemplates.filter(template=>template.key!==previous),pool=candidates.length?candidates:questTemplates,template=pool[Math.floor(Math.random()*pool.length)];state.quest={...template,progress:0,complete:false}};
 const pickEventBase=pickEvent;
 pickEvent=function(){const previous=state.eventIndex,selected=pickEventBase();if(selected!==previous)return selected;const alternative=events.findIndex((event,index)=>index!==previous&&eventAvailable(event,state.yearsElapsed||0));if(alternative<0)return selected;state.recent.push(alternative);state.recent=state.recent.slice(-4);return alternative};
+const eventAvailableBase=eventAvailable;
+eventAvailable=function(event,year){const rule={...event,...(eventConditionOverrides[event.type]||{})};if(Number.isFinite(rule.minYear)&&year<rule.minYear)return false;if(Number.isFinite(rule.maxYear)&&year>rule.maxYear)return false;return eventAvailableBase(event,year)};
 const claimQuestBase=claimQuest;
 claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const cappedHp=clampStateValue('hp',state.hp);if(cappedHp!==state.hp){state.hp=cappedHp;render();saveGame()}};
 document.getElementById('claimMission').onclick=claimQuest;
