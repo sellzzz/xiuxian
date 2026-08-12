@@ -36,6 +36,7 @@ for (const [eventType, branches] of Object.entries(config.artifactRewards || {})
   for (const side of ['left', 'right']) {
     if (!(side in branches)) continue;
     const rewards = Array.isArray(branches[side]) ? branches[side] : [branches[side]];
+    if (!rewards.length) throw new Error(`empty artifact reward: ${eventType}.${side}`);
     for (const id of rewards) {
       if (typeof id !== 'string' || !config.artifacts[id]) {
         throw new Error(`unknown artifact reward: ${eventType}.${side} -> ${id}`);
