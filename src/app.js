@@ -650,3 +650,5 @@ renderRelations=function(){renderRelationsBase();[['steward','柳管事'],['peer
 const claimQuestBase=claimQuest;
 claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const cappedHp=clampStateValue('hp',state.hp);if(cappedHp!==state.hp){state.hp=cappedHp;render();saveGame()}};
 document.getElementById('claimMission').onclick=claimQuest;
+renderQuest();
+renderRelations();
