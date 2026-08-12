@@ -37,6 +37,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 剧情脚本也可调用 `QingyunStoryAPI.useArtifact('moonLamp')` 主动发动已获得的法宝；未获得、资源不足、无主动效果或仍在冷却时返回 `false`，成功发动返回 `true`，不会绕过规则。
 
+编写后续剧情时可调用只读接口 `QingyunStoryAPI.artifactCatalog()`，获得每件法宝的 ID、名称、是否已获得、是否有主动技能及关联共鸣 ID，适合用来生成剧情条件、提示文本或调试面板。
+
 剧情奖励可在 `artifactRewards` 中按“卡牌类型 + left/right”配置，例如 `{ '古洞机缘': { right: 'moonLamp' } }`；玩家选择该方向时会自动获得法宝。
 
 多件法宝可以在 `resonances` 中配置共鸣，使用 `requires` 列出所需法宝 ID，并直接填写 `combatBonus`、`recovery` 或 `meditationScale` 等属性；全部集齐后会自动激活并显示在背包。
