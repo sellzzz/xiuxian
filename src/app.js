@@ -631,6 +631,8 @@ const pickEventBase=pickEvent;
 pickEvent=function(){const previous=state.eventIndex,selected=pickEventBase();if(selected!==previous)return selected;const alternative=events.findIndex((event,index)=>index!==previous&&eventAvailable(event,state.yearsElapsed||0));if(alternative<0)return selected;state.recent.push(alternative);state.recent=state.recent.slice(-4);return alternative};
 const eventAvailableBase=eventAvailable;
 eventAvailable=function(event,year){const rule={...event,...(eventConditionOverrides[event.type]||{})};if(Number.isFinite(rule.minYear)&&year<rule.minYear)return false;if(Number.isFinite(rule.maxYear)&&year>rule.maxYear)return false;return eventAvailableBase(event,year)};
+const diagnosticsBase=QingyunStoryAPI.diagnostics;
+QingyunStoryAPI.diagnostics=function(){const result=diagnosticsBase();return{...result,quest:state?.quest?{title:state.quest.title,key:state.quest.key,progress:state.quest.progress,target:state.quest.target,complete:Boolean(state.quest.complete)}:null,availableEventCount:events.filter(event=>eventAvailable(event,state?.yearsElapsed||0)).length}};
 const claimQuestBase=claimQuest;
 claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const cappedHp=clampStateValue('hp',state.hp);if(cappedHp!==state.hp){state.hp=cappedHp;render();saveGame()}};
 document.getElementById('claimMission').onclick=claimQuest;

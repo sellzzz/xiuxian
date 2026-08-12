@@ -78,6 +78,10 @@ foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'ar
   }
 }
 
+if ($appSource.IndexOf('availableEventCount', [StringComparison]::Ordinal) -lt 0) {
+  throw 'Missing diagnostics event pool marker'
+}
+
 foreach ($relativePath in @('styles/base.css', 'styles/visual-polish.css', 'styles/ui-overrides.css')) {
   $css = Get-Content (Join-Path $root $relativePath) -Raw -Encoding UTF8
   $open = ([regex]::Matches($css, '{')).Count
