@@ -26,6 +26,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'src/app.js syntax check failed' }
   & node --check config/story-config.js
   if ($LASTEXITCODE -ne 0) { throw 'config/story-config.js syntax check failed' }
+  & node tests/validate-config.js
+  if ($LASTEXITCODE -ne 0) { throw 'story configuration validation failed' }
 } finally {
   Pop-Location
 }
@@ -67,4 +69,4 @@ foreach ($relativePath in @('styles/base.css', 'styles/visual-polish.css', 'styl
   if ($open -ne $close) { throw "Unbalanced CSS braces: $relativePath ($open / $close)" }
 }
 
-Write-Output "Smoke check passed: $($required.Count) files, 2 scripts, 3 stylesheets."
+Write-Output "Smoke check passed: $($required.Count) files, 3 scripts, 3 stylesheets."
