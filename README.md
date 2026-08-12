@@ -31,6 +31,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。栏位按实际数量增长并支持滚动查看。当前存档格式为第 5 版，旧存档会自动迁移。
 
+宗门任务支持连勤：连续领取完成 3 个任务会额外获得 5 点贡献，连勤次数会写入存档并在任务栏显示。
+
 顶部“备份”可下载当前 JSON 存档；“导入”会在确认后读取备份并自动迁移旧版本，适合换设备或清理浏览器数据前保存进度。
 
 配置中的 `moonLamp` 会在“古洞机缘”卡牌选择“记录符文”时作为剧情奖励获得；`beastHorn` 会在“后山巡夜”选择“独自追踪”时获得；`frostNeedle`、`spiritGourd`、`cloudSeal`、`starCompass` 分别接入“秘境裂隙”“万宝商舟”“古战场残魂”“法宝器灵”节点；`heartMirror` 会在“心魔低语”选择“斩断心魔”时获得。八件法宝也可用 `QingyunStoryAPI.grantArtifact()` 测试栏位和属性效果。
