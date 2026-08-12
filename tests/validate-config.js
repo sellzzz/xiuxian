@@ -75,4 +75,26 @@ for (const [id, resonance] of Object.entries(config.resonances || {})) {
   if ('meditationScale' in resonance && Number(resonance.meditationScale) <= 0) throw new Error(`artifact resonance meditationScale must be positive: ${id}`);
 }
 
+const eventConditionFields = new Set(['minYear', 'maxYear', 'ranks', 'requiresCompanion', 'requiresMaster', 'requiresEstate', 'requiresArtifact', 'requiresConfiguredArtifact', 'requiresTalent', 'requiresDemonVictory', 'rootGrades', 'worldCycles', 'requiresStatus', 'requiresPath', 'causalKey']);
+const eventConditionLists = new Set(['ranks', 'rootGrades', 'worldCycles']);
+const eventConditionFlags = new Set(['requiresArtifact', 'requiresMaster', 'requiresEstate', 'requiresTalent', 'requiresDemonVictory']);
+for (const [eventType, condition] of Object.entries(config.eventConditions || {})) {
+  if (!condition || typeof condition !== 'object' || Array.isArray(condition)) throw new Error(`invalid event condition: ${eventType}`);
+  for (const [key, value] of Object.entries(condition)) {
+    if (!eventConditionFields.has(key)) throw new Error(`unknown event condition field: ${eventType}.${key}`);
+    if (key === 'minYear' || key === 'maxYear') {
+      if (!Number.isFinite(Number(value))) throw new Error(`event condition year must be numeric: ${eventType}.${key}`);
+    } else if (eventConditionLists.has(key)) {
+      if (!Array.isArray(value) || value.some(item => typeof item !== 'string')) throw new Error(`event condition list is invalid: ${eventType}.${key}`);
+    } else if (eventConditionFlags.has(key)) {
+      if (typeof value !== 'boolean') throw new Error(`event condition flag is invalid: ${eventType}.${key}`);
+    } else if (typeof value !== 'string') {
+      throw new Error(`event condition value is invalid: ${eventType}.${key}`);
+    }
+    if (key === 'requiresConfiguredArtifact' && !config.artifacts[value]) {
+      throw new Error(`unknown event condition artifact: ${eventType} -> ${value}`);
+    }
+  }
+}
+
 console.log(`Config validation passed: ${Object.keys(config.artifacts || {}).length} artifacts.`);
