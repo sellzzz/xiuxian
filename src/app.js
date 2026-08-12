@@ -652,3 +652,4 @@ claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const ca
 document.getElementById('claimMission').onclick=claimQuest;
 renderQuest();
 renderRelations();
+setTimeout(()=>{const status=$('saveStatus');if(status&&!status.classList.contains('saving')){status.setAttribute('aria-busy','false');status.textContent='● 已保存'}},260);
