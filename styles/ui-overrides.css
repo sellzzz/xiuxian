@@ -153,6 +153,7 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 @media(max-width:760px){.game{padding-top:max(21px,env(safe-area-inset-top));padding-bottom:max(38px,env(safe-area-inset-bottom))}}
 
 .turn #topLife.critical{color:#b74432;text-shadow:0 0 8px #c75d4844}
+.log-toggle{margin-left:auto;padding:4px 8px;border:1px solid #d8c5a9;border-radius:12px;background:#faf2e5;color:#9a704e;font:inherit;font-size:9px;cursor:pointer;transition:.2s}.log-toggle:hover,.chronicle.log-expanded .log-toggle{border-color:#b78945;background:#b78945;color:#fff}.chronicle.log-expanded #log{max-height:360px}.chronicle.log-expanded .chronicle-head{border-bottom:1px solid #e3d6c5}
 @media(max-width:760px){.turn #timeLabel{order:0;flex-basis:100%;text-align:right}.turn .life-actions-chip{order:1}.turn .save-status{order:2}.turn .music-toggle,.turn .volume-control{order:3}.turn .save-action{order:4}.turn #restart{order:5}}
 .life-actions-chip{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid #cdbb9d;border-radius:16px;background:#faf2e3;color:#806a4d;font-size:9px;white-space:nowrap;box-shadow:0 3px 10px #70533a0d}.life-actions-chip.critical{border-color:#c58372;background:#fff0eb;color:#a14e42;animation:lifeBudgetPulse 1.8s ease-in-out infinite}.life-actions-chip.exhausted{border-color:#9f5550;background:#542d29;color:#fff0e7}@keyframes lifeBudgetPulse{50%{box-shadow:0 0 0 3px #c5837228,0 3px 12px #70533a18}}
 .scene[aria-busy="true"]{pointer-events:none}
