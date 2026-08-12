@@ -73,3 +73,5 @@
 3. `src/content/`：事件和人物数据。
 4. `src/ui/`：渲染、拖动、动画、音频。
 5. `src/main.js`：只负责初始化和模块装配。
+
+当前入口仍是根目录 `index.html`；样式已拆分为 `styles/base.css`、`styles/visual-polish.css` 和 `styles/ui-overrides.css`，剧情扩展统一从 `config/story-config.js` 接入。

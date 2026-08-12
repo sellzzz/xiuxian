@@ -18,11 +18,12 @@ python -m http.server 8877 --bind 127.0.0.1
 - `src/app.js`：游戏状态、事件循环、卡牌选择、渲染和存档。
 - `config/story-config.js`：剧情扩展配置入口，适合增加人物好感规则和人际联动。
 - `styles/base.css`：基础视觉样式。
+- `styles/visual-polish.css`：卡牌浮动、焦点提示、移动端细节和减少动态效果适配。
 - `styles/ui-overrides.css`：游戏专属 UI、背景、动效和响应式样式。
 - `assets/backgrounds/`：主界面和第一幕背景。
 - `assets/artifacts/`：法宝、道具封面和图标资源。
 - `docs/`：设计文档、系统规划和后续开发约定。
-- `tests/`：手工回归清单和未来自动化测试。
+- `tests/`：回归清单、资源冒烟检查和剧情配置校验。
 
 ## 剧情扩展接口
 
