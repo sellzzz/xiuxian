@@ -31,6 +31,7 @@ body.tribulation-bg{background-image:linear-gradient(180deg,#171225a8 0%,#261b3d
 .system-bar.unlocked{display:none}.system-panel{top:145px;width:290px;max-height:calc(100vh - 170px);overflow-y:auto}.system-section+.system-section{margin-top:18px;padding-top:15px;border-top:1px solid #e2d4c2}.system-section-title{margin-bottom:9px;color:#9a7045;font-size:11px;font-weight:700;letter-spacing:2px}.system-section-title em{float:right;font-style:normal;color:#ae9985;letter-spacing:0}@media(max-width:760px){.system-panel{max-height:none;overflow:visible}}
 .has-system-panel .game{max-width:980px;margin-left:max(16px,calc((100vw - 1280px)/2));margin-right:320px}
 @media(min-width:1181px){.has-system-panel .game{margin-left:max(100px,calc((100vw - 1280px)/2 + 96px))}}
+@media(min-width:1181px){.brand h1{white-space:nowrap}.turn{min-width:0}}
 @media(max-width:1100px){.has-system-panel .game{max-width:980px;margin-inline:auto}.system-panel{position:static;width:auto;max-height:none;overflow:visible}}
 .meter{padding:9px 10px;border:1px solid #e8ddce;border-radius:7px;background:#fffaf352;transition:background .2s,transform .2s}
 .meter:hover{background:#fffaf3c9;transform:translateY(-2px)}
