@@ -190,7 +190,7 @@ function openRelationshipBook(){if(!state.inventory?.relationshipBook){$('status
 function inspectArtifact(id){if(id==='relationshipBook'){openRelationshipBook();return}const item=artifactRackItems().find(entry=>entry.id===id);if(item)$('statusMessage').textContent=`${item.name}：${item.hint}。`}
 function closeRelationshipBook(){$('relationModal').classList.add('hidden')}
 function resolveRelationshipBookDiscovery(side){state.inventory.relationshipBook=1;addLog(side==='left'?'<strong>偶得主线道具 · 人缘册。</strong>藏书阁执事认不出旧册来历，嫌它晦气，又将它丢回你怀里。':'<strong>偶得主线道具 · 人缘册。</strong>你拂去封皮灰尘，将这册会自行记载人情因果的旧书留在身边。');$('statusMessage').textContent='人缘册已出现在画面左侧，可随时翻阅。'}
-const SAVE_KEY='qingyun-cultivation-save-v2',META_KEY='qingyun-cultivation-meta-v1',SAVE_VERSION=3;
+const SAVE_KEY='qingyun-cultivation-save-v2',META_KEY='qingyun-cultivation-meta-v1',MUSIC_VOLUME_KEY='qingyun-music-volume-v1',SAVE_VERSION=3;
 const legacyBoons={spirit:{name:'灵息玉',desc:'初始灵力 +20'},body:{name:'护命符',desc:'初始气血 +15 · 寿元 +5'},wealth:{name:'百宝囊',desc:'初始灵石 +18 · 声望 +8'}};let meta;
 const endingCatalog=[
  {id:'qingyunAncestor',title:'青云道祖',hint:'以掌教之身平魔域、兴宗门后飞升',epilogue:'三十六峰钟声追着你越过天门，青云宗从此把你的名字写在历代祖师之前。'},
@@ -519,12 +519,14 @@ function playChoiceSound(){tone(180,.08,'triangle',.025);tone(270,.12,'sine',.01
 function playMeditationSound(){tone(220,.8,'sine',.045);tone(330,1,'sine',.035,.12);tone(495,1.2,'sine',.028,.28);tone(660,1.4,'sine',.018,.46)}
 function showMeditationAnimation(){playMeditationSound();const backdrop=document.createElement('div');backdrop.className='meditation-backdrop';const toast=document.createElement('div');toast.className='meditation-toast';toast.innerHTML='<strong>打坐完成</strong><span>灵台清明 · 道心渐稳</span>';document.body.append(backdrop,toast);setTimeout(()=>{backdrop.remove();toast.remove()},1400)}
 let musicTimer=null,musicPlaying=false,musicVolume=.8;
+function loadMusicVolume(){try{const saved=Number(localStorage.getItem(MUSIC_VOLUME_KEY));if(Number.isFinite(saved)&&saved>=0&&saved<=1)musicVolume=saved}catch(error){}const input=$('musicVolume');if(input)input.value=String(Math.round(musicVolume*100))}
+loadMusicVolume();
 function musicTone(frequency,duration,type,volume,delay=0){tone(frequency,duration,type,volume*musicVolume,delay)}
 function startMusic(){if(musicPlaying)return;musicPlaying=true;const playPhrase=()=>{const progression=[[130.81,164.81,196],[146.83,174.61,220],[110,146.83,174.61],[123.47,155.56,196],[146.83,185,220],[130.81,164.81,196],[98,123.47,146.83],[110,146.83,164.81]];const chord=progression[Math.floor(Date.now()/15200)%2*4];chord.forEach((note,index)=>musicTone(note,13.8,'sine',.055,index*.1));const melody=[392,440,523.25,587.33,523.25,440,392,329.63,349.23,392,440,523.25,440,392,349.23,293.66,329.63,392,440,523.25,659.25,587.33,523.25,440,392,349.23,329.63,293.66,329.63,392,440,392];melody.forEach((note,index)=>musicTone(note,.72,'triangle',.068,index*.47));const arpeggio=[chord[0]*2,chord[1]*2,chord[2]*2,chord[1]*2];for(let index=0;index<32;index++)musicTone(arpeggio[index%4],.28,'sine',.032,index*.47+.12);for(let index=0;index<8;index++)musicTone(chord[0],1.4,'triangle',.045,index*1.9);[523.25,659.25,783.99,659.25].forEach((note,index)=>musicTone(note,1.1,'sine',.03,3.8+index*3.8))};playPhrase();musicTimer=setInterval(playPhrase,15200);$('musicToggle')?.classList.add('is-on');if($('musicToggle'))$('musicToggle').textContent='♫ 音乐中'}
 function stopMusic(){musicPlaying=false;if(musicTimer){clearInterval(musicTimer);musicTimer=null}$('musicToggle')?.classList.remove('is-on');if($('musicToggle'))$('musicToggle').textContent='♫ 音乐'}
 document.addEventListener('pointerdown',event=>{getAudio();if(event.target.id!=='musicToggle')startMusic()},{once:true});
 document.getElementById('musicToggle').onclick=()=>{getAudio();musicPlaying?stopMusic():startMusic()};
-document.getElementById('musicVolume').oninput=event=>{musicVolume=Number(event.target.value)/100};
+document.getElementById('musicVolume').oninput=event=>{musicVolume=Number(event.target.value)/100;try{localStorage.setItem(MUSIC_VOLUME_KEY,String(musicVolume))}catch(error){}};
 document.getElementById('techniqueButton').onclick=()=>showSystem('technique');document.getElementById('inventoryButton').onclick=()=>showSystem('inventory');
 document.getElementById('breakthroughButton').onclick=attemptBreakthrough;
 document.getElementById('claimMission').onclick=claimQuest;
