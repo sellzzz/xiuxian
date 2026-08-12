@@ -20,3 +20,5 @@ powershell -ExecutionPolicy Bypass -File tests/smoke-check.ps1
 ```
 
 该检查会验证关键目录、页面节点、脚本语法和 CSS 花括号，适合每次新增剧情或法宝后快速回归。
+
+GitHub 上的每次推送和 Pull Request 也会自动运行同一套检查。
