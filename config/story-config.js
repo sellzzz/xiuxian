@@ -18,5 +18,6 @@
  */
 window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
-  influenceRules: {}
+  influenceRules: {},
+  artifacts: {}
 };
