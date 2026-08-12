@@ -635,6 +635,8 @@ const diagnosticsBase=QingyunStoryAPI.diagnostics;
 QingyunStoryAPI.diagnostics=function(){const result=diagnosticsBase();return{...result,quest:state?.quest?{title:state.quest.title,key:state.quest.key,progress:state.quest.progress,target:state.quest.target,complete:Boolean(state.quest.complete)}:null,availableEventCount:events.filter(event=>eventAvailable(event,state?.yearsElapsed||0)).length}};
 function normalizeArtifactCooldowns(){if(!state)return;state.artifactCooldowns??={};Object.entries(state.artifactCooldowns).forEach(([id,value])=>{const cooldown=Number(value);if(!state.artifacts?.includes(id)||!Number.isFinite(cooldown)||cooldown<=0)delete state.artifactCooldowns[id];else state.artifactCooldowns[id]=Math.ceil(cooldown)})}
 normalizeArtifactCooldowns();
+function compactLoadLogs(){if(!state?.log)return;const seen=new Set();state.log=state.log.filter(entry=>{if(typeof entry?.text!=='string'||!entry.text.includes('读取自动存档'))return true;if(seen.has(entry.text))return false;seen.add(entry.text);return true});const log=$('log');if(log)log.innerHTML=state.log.slice(0,6).map(entry=>`<div class="log-item"><time>${entry.time}</time>${entry.text}</div>`).join('');saveGame()}
+compactLoadLogs();
 const claimQuestBase=claimQuest;
 claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const cappedHp=clampStateValue('hp',state.hp);if(cappedHp!==state.hp){state.hp=cappedHp;render();saveGame()}};
 document.getElementById('claimMission').onclick=claimQuest;
