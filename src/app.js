@@ -498,6 +498,8 @@ const QingyunStoryAPI={
  removeArtifact(id){if(!state?.artifacts||!state.artifacts.includes(id))return false;const previous=activeArtifactResonances().map(([resonanceId])=>resonanceId),name=artifactOverrides[id]?.name||id;state.artifacts=state.artifacts.filter(item=>item!==id);addLog(`<strong>法宝离栏 · ${name}。</strong>该法宝的配置属性已停止生效。`);announceArtifactResonanceLoss(previous);$('statusMessage').textContent=`法宝「${name}」已移出栏位。`;render();saveGame();return true}
 };
 window.QingyunStoryAPI=QingyunStoryAPI;
+// Keep the public story hook aligned with the UI: a missing cooldown means the artifact is ready.
+QingyunStoryAPI.useArtifact=function(id){const artifact=artifactOverrides[id],active=artifact?.active;if(!artifact||!state?.artifacts?.includes(id)||!active||state.artifactCooldowns?.[id])return false;for(const [key,value] of Object.entries(active.cost||{})){if((state[key]||0)<Number(value))return false}inspectedArtifactId=`artifact:${id}`;useInspectedArtifact();return true};
 function highestRelation(){return Object.keys(npcProfiles).reduce((best,key)=>state.relations[key]>state.relations[best]?key:best,'steward')}
 function currentBondEvent(){const key=highestRelation();return state.relations[key]>=15?bondEvents[key]:lonelyBondEvent}
 function currentBondAwakeningEvent(){return bondAwakeningEvents[state.companionKey]||bondAwakeningEvents.lonely}
