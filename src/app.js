@@ -453,7 +453,7 @@ const QingyunStoryAPI={
  preview(eventType,side){return{direct:{...cleanRelationshipChanges(relationshipRules[eventType]?.[side])},total:{...relationshipImpact(eventType,side)}}},
  getConfig(){return JSON.parse(JSON.stringify({events:relationshipRules,influences:relationshipInfluenceRules,people:npcProfiles,artifacts:artifactOverrides}))},
  diagnostics(){return{saveVersion:SAVE_VERSION,scene:state?.scene||null,year:state?.yearsElapsed||0,rank:state?.rank||null,life:state?.life??null,currentEvent:state?currentEvent()?.title||null:null,inventory:state?{...state.inventory}:null,artifacts:state?[...(state.artifacts||[])]:[],relations:state?{...state.relations}:null}},
- grantArtifact(id){if(!artifactOverrides[id])throw new Error('法宝未在 config/story-config.js 中定义');state.artifacts??=[];if(!state.artifacts.includes(id))state.artifacts.push(id);render();saveGame();return artifactOverrides[id]},
+ grantArtifact(id){if(!artifactOverrides[id])throw new Error('法宝未在 config/story-config.js 中定义');state.artifacts??=[];if(state.artifacts.includes(id))return artifactOverrides[id];state.artifacts.push(id);addLog(`<strong>获得法宝 · ${artifactOverrides[id].name||id}。</strong>它已进入左侧法宝栏，并开始提供配置中的属性加成。`);$('statusMessage').textContent=`法宝「${artifactOverrides[id].name||id}」已入栏。`;render();saveGame();return artifactOverrides[id]},
  removeArtifact(id){if(!state?.artifacts)return false;state.artifacts=state.artifacts.filter(item=>item!==id);render();saveGame();return true}
 };
 window.QingyunStoryAPI=QingyunStoryAPI;
