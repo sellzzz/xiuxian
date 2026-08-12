@@ -52,6 +52,13 @@ foreach ($marker in $markers) {
   }
 }
 
+$readme = Get-Content (Join-Path $root 'README.md') -Raw -Encoding UTF8
+foreach ($marker in @('active:', 'cost:{qi:12}', 'cooldown:3')) {
+  if ($readme.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing active artifact documentation marker: $marker"
+  }
+}
+
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
 foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {

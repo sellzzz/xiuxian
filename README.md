@@ -33,6 +33,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 配置中的 `moonLamp` 是一个不会自动发放的示例，可用 `QingyunStoryAPI.grantArtifact('moonLamp')` 测试法宝栏位和属性效果。
 
+法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
+
 剧情奖励可在 `artifactRewards` 中按“卡牌类型 + left/right”配置，例如 `{ '古洞机缘': { right: 'moonLamp' } }`；玩家选择该方向时会自动获得法宝。
 
 调试时也可调用 `QingyunStoryAPI.setArtifactReward('古洞机缘', 'right', 'moonLamp')` 临时修改奖励路线，使用 `removeArtifactReward()` 清除。
