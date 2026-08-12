@@ -466,7 +466,7 @@ function render(){
  const card=$('cardWrap').querySelector('.decision-card');card.style.transform='rotate(-.6deg)';card.style.opacity='1';card.setAttribute('aria-label','当前事件：'+e.title+'。可使用 A/D/W 或方向键选择');card.setAttribute('aria-keyshortcuts','A D W ArrowLeft ArrowRight ArrowUp');card.style.transition='transform .3s,opacity .3s';const swipeHint=card.querySelector('.swipe-hint');if(swipeHint)swipeHint.textContent=state.scene==='prologue'?'← 强闯受阻 · → 叩首入宗 · ↑ 尚未解锁 · A/D 键':'← → 抉择 · ↑ 上滑打坐 · A/D/W 键 · 每次行动半年';renderSystems();refreshArtifactInspector();bindDrag()
 }
 function formatYears(value){return Number.isInteger(value)?String(value):Number(value).toFixed(1)}
-function addLog(text){state.log.unshift({text,time:state.scene==='prologue'?'入门':`修行${formatYears(state.yearsElapsed||0)}年 · 余寿${formatYears(state.life)}`});$('log').innerHTML=state.log.slice(0,6).map(x=>`<div class="log-item"><time>${x.time}</time>${x.text}</div>`).join('');saveGame()}
+function addLog(text){state.log.unshift({text,time:state.scene==='prologue'?'入门':`修行${formatYears(state.yearsElapsed||0)}年 · 余寿${formatYears(state.life)}`});state.log=state.log.slice(0,100);$('log').innerHTML=state.log.slice(0,6).map(x=>`<div class="log-item"><time>${x.time}</time>${x.text}</div>`).join('');saveGame()}
 function choiceLifeCost(){return .5}
 function spendLife(years){state.life=Math.max(0,state.life-years);return years}
 function relationshipChangeText(eventType,side){const direct=cleanRelationshipChanges(relationshipRules[eventType]?.[side]),changes=relationshipImpact(eventType,side);return Object.entries(changes).map(([key,value])=>`${npcProfiles[key].name}好感 ${value>0?'+':''}${value}${Object.hasOwn(direct,key)?'':'（牵连）'}`).join(' · ')}
