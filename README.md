@@ -33,8 +33,6 @@ python -m http.server 8877 --bind 127.0.0.1
 
 顶部“备份”可下载当前 JSON 存档；“导入”会在确认后读取备份并自动迁移旧版本，适合换设备或清理浏览器数据前保存进度。
 
-顶部“备份”可下载当前 JSON 存档；“导入”会在确认后读取备份并自动迁移旧版本，适合换设备或清理浏览器数据前保存进度。
-
 配置中的 `moonLamp` 会在“古洞机缘”卡牌选择“记录符文”时作为剧情奖励获得；`beastHorn` 会在“后山巡夜”选择“独自追踪”时获得；`frostNeedle`、`spiritGourd`、`cloudSeal`、`starCompass` 分别接入“秘境裂隙”“万宝商舟”“古战场残魂”“法宝器灵”节点。六件法宝也可用 `QingyunStoryAPI.grantArtifact()` 测试栏位和属性效果。
 
 法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
