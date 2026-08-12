@@ -47,6 +47,19 @@ foreach ($marker in $markers) {
   }
 }
 
+$storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifacts:')) {
+  if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing story config marker: $marker"
+  }
+}
+$appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
+foreach ($marker in @('grantArtifact', 'artifactBonus', 'migrateSave')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing extensibility marker: $marker"
+  }
+}
+
 foreach ($relativePath in @('styles/base.css', 'styles/visual-polish.css', 'styles/ui-overrides.css')) {
   $css = Get-Content (Join-Path $root $relativePath) -Raw -Encoding UTF8
   $open = ([regex]::Matches($css, '{')).Count

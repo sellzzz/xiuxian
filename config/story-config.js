@@ -19,5 +19,7 @@
 window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
   influenceRules: {},
-  artifacts: {}
+  artifacts: {
+    // 示例：月魄灯: {name:'月魄灯', icon:'灯', hint:'静心法宝', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3}
+  }
 };
