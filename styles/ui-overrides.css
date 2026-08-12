@@ -14,6 +14,7 @@ body.tribulation-bg{background-image:linear-gradient(180deg,#171225a8 0%,#261b3d
 .brand .seal:hover{transform:rotate(-12deg) scale(1.08);box-shadow:0 5px 16px #b85d4328,inset 0 0 0 3px #b85d4317}
 .music-toggle{border:1px solid #d9c5a8;border-radius:20px;background:#f9f0e2;color:#9a7045;padding:6px 10px;font:inherit;font-size:11px;cursor:pointer;transition:.2s}.music-toggle:hover,.music-toggle.is-on{background:#b78945;color:#fff;border-color:#b78945}.music-toggle.is-on{box-shadow:0 0 0 3px #b7894522}
 .save-action{border:1px solid #d9c5a8!important;border-radius:5px!important;background:#f9f0e2!important;color:#9a7045!important;padding:5px 7px!important;font-size:10px!important}.save-action:hover{background:#b78945!important;color:#fff!important;border-color:#b78945!important}
+@media(max-width:760px){.turn{column-gap:6px}.turn .save-status{font-size:8px;letter-spacing:0}.turn .save-action{padding:4px 5px!important;font-size:9px!important}}
 .turn strong{color:#b85d43;font-size:14px}
 .volume-control{display:flex;align-items:center;gap:5px;color:#9a7045;font-size:12px}.volume-control input{width:66px;height:4px;accent-color:#b78945;cursor:pointer}
 .status{border-radius:10px;box-shadow:0 15px 32px #70533a18, inset 0 1px #fffdf5;gap:32px}
