@@ -11,6 +11,7 @@ const config = sandbox.window.QINGYUN_STORY_OVERRIDES;
 if (!config || typeof config !== 'object') throw new Error('story config did not initialize');
 
 const numericFields = ['combatBonus', 'meditationScale', 'recovery', 'breakthroughBonus', 'examBonus'];
+const stateFields = ['qi', 'hp', 'heart', 'fame', 'stone', 'life', 'contribution'];
 for (const [id, artifact] of Object.entries(config.artifacts || {})) {
   if (!artifact || typeof artifact !== 'object') throw new Error(`invalid artifact: ${id}`);
   if (!artifact.name) throw new Error(`artifact missing name: ${id}`);
@@ -36,6 +37,7 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
     for (const [kind, values] of [['cost', artifact.active.cost], ['effect', artifact.active.effect]]) {
       if (!values) continue;
       for (const [key, value] of Object.entries(values)) {
+        if (!stateFields.includes(key)) throw new Error(`unknown artifact active state field: ${id}.${key}`);
         if (!Number.isFinite(Number(value))) throw new Error(`artifact active ${kind} must be numeric: ${id}.${key}`);
         if (kind === 'cost' && Number(value) < 0) throw new Error(`artifact active cost must be non-negative: ${id}.${key}`);
       }
