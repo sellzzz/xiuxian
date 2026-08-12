@@ -667,3 +667,5 @@ if(musicVolumeInput){const musicVolumeInputHandler=musicVolumeInput.oninput;musi
 renderMusicVolume();
 const showSystemBase=showSystem;
 showSystem=function(){const panel=$('systemPanel'),scrollTop=panel?.scrollTop||0;showSystemBase();if(panel)panel.scrollTop=scrollTop};
+let resumeMusicOnVisible=false;
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){resumeMusicOnVisible=musicPlaying;if(musicPlaying)stopMusic()}else if(resumeMusicOnVisible&&musicEnabled){resumeMusicOnVisible=false;startMusic()}});
