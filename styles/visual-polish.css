@@ -7,5 +7,6 @@
 .decision-card:hover{box-shadow:0 26px 50px #64472d35,0 0 0 7px #d7b8752b}
 .side-choice{box-shadow:0 8px 20px #64472d12}
 .side-choice:active{transform:scale(.94)!important}
+button:focus-visible,input:focus-visible{outline:2px solid #b78945;outline-offset:3px}
 @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@media(max-width:760px){.status{padding:17px 18px}.status:after{right:4px}.decision-card{box-shadow:0 16px 30px #64472d2b,0 0 0 5px #f6efe433}.card-wrap{animation:none}}
+@media(max-width:760px){.topbar{align-items:flex-start;flex-wrap:wrap;gap:12px}.brand{flex:1 1 160px;min-width:160px}.turn{flex:1 1 100%;justify-content:flex-end;flex-wrap:wrap;row-gap:6px}.turn #timeLabel{order:5;flex-basis:100%;text-align:right}.status{padding:17px 18px}.status:after{right:4px}.decision-card{box-shadow:0 16px 30px #64472d2b,0 0 0 5px #f6efe433}.card-wrap{animation:none}}
