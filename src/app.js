@@ -580,6 +580,8 @@ document.getElementById('musicVolume').oninput=event=>{musicVolume=Number(event.
 document.getElementById('techniqueButton').onclick=()=>showSystem('technique');document.getElementById('inventoryButton').onclick=()=>showSystem('inventory');
 document.getElementById('breakthroughButton').onclick=attemptBreakthrough;
 document.getElementById('claimMission').onclick=claimQuest;
+const renderQuestBase=renderQuest;
+renderQuest=function(){renderQuestBase();const track=$('missionProgressBar')?.parentElement,quest=state?.quest,target=Number(quest?.target)||0,value=Math.min(Math.max(Number(quest?.progress)||0,0),target);if(track){track.setAttribute('role','progressbar');track.setAttribute('aria-label','宗门任务进度');track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax',String(target));track.setAttribute('aria-valuenow',String(value))}};
 const chooseGuarded=choose;
 choose=function(side){const event=currentEvent();if(side==='left'&&event?.lockedLeft){showBlocked(event.blockHint);return}chooseGuarded(side)};
 document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'){event.preventDefault();exportSave();return}if(event.key==='Escape'&&!$('artifactInspector').classList.contains('hidden')){closeArtifactInspector();return}if(event.key==='Escape'&&!$('relationModal').classList.contains('hidden')){closeRelationshipBook();return}if(event.repeat||event.target.matches('input,button')||!$('modal').classList.contains('hidden')||!$('relationModal').classList.contains('hidden'))return;const key=event.key.toLowerCase();if(key==='arrowleft'||key==='a')choose('left');if(key==='arrowright'||key==='d')choose('right');if(key==='arrowup'||key==='w')choose('up')});
