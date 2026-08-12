@@ -19,8 +19,8 @@
 window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
   influenceRules: {},
-  artifactRewards: {},
+  artifactRewards: {'古洞机缘': {right: 'moonLamp'}},
   artifacts: {
-    moonLamp: {name:'月魄灯', icon:'灯', hint:'静心法宝 · 尚未纳入主线', description:'可作为支线奖励的配置示例。', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3, active:{label:'安神照魄', hint:'消耗 12 灵力，恢复 8 道心；冷却 3 回合。', cost:{qi:12}, effect:{heart:8}, cooldown:3}}
+    moonLamp: {name:'月魄灯', icon:'灯', hint:'静心法宝 · 古洞机缘奖励', description:'记录石门符文后，月华凝成灯火；可辅助修行，也能主动安神。', combatBonus:8, meditationScale:1.08, recovery:2, breakthroughBonus:0.03, examBonus:3, active:{label:'安神照魄', hint:'消耗 12 灵力，恢复 8 道心；冷却 3 回合。', cost:{qi:12}, effect:{heart:8}, cooldown:3}}
   }
 };

@@ -31,7 +31,7 @@ python -m http.server 8877 --bind 127.0.0.1
 
 新增法宝时，在 `config/story-config.js` 的 `artifacts` 中配置名称、图标、封面和提示文本；剧情或调试接口调用 `QingyunStoryAPI.grantArtifact('法宝ID')` 后，法宝会自动进入左侧栏位。栏位按实际数量增长并支持滚动查看。当前存档格式为第 4 版，旧存档会自动迁移。
 
-配置中的 `moonLamp` 是一个不会自动发放的示例，可用 `QingyunStoryAPI.grantArtifact('moonLamp')` 测试法宝栏位和属性效果。
+配置中的 `moonLamp` 会在“古洞机缘”卡牌选择“记录符文”时作为剧情奖励获得，也可用 `QingyunStoryAPI.grantArtifact('moonLamp')` 测试法宝栏位和属性效果。
 
 法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
 
