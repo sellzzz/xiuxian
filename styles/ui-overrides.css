@@ -139,3 +139,4 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 @media(max-width:760px){.chronicle{padding-bottom:86px}.artifact-rack{bottom:max(15px,env(safe-area-inset-bottom))}.artifact-inspector{bottom:max(16px,env(safe-area-inset-bottom))}}
 .side-choice[aria-disabled="true"]{cursor:not-allowed}.side-choice[aria-disabled="true"]:hover{background:linear-gradient(145deg,#fcf8f0,#f0e3d1);color:#a99582;transform:none}
 .decision-card{touch-action:none;user-select:none}
+.side-choice:disabled{cursor:wait;opacity:.55;filter:saturate(.55)}
