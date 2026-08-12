@@ -665,3 +665,5 @@ loadMusicSettings=function(){loadMusicSettingsWithVolumeFeedback();renderMusicVo
 const musicVolumeInput=$('musicVolume');
 if(musicVolumeInput){const musicVolumeInputHandler=musicVolumeInput.oninput;musicVolumeInput.oninput=event=>{musicVolumeInputHandler?.(event);renderMusicVolume()}}
 renderMusicVolume();
+const showSystemBase=showSystem;
+showSystem=function(){const panel=$('systemPanel'),scrollTop=panel?.scrollTop||0;showSystemBase();if(panel)panel.scrollTop=scrollTop};
