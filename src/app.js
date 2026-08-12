@@ -637,6 +637,9 @@ function normalizeArtifactCooldowns(){if(!state)return;state.artifactCooldowns??
 normalizeArtifactCooldowns();
 function compactLoadLogs(){if(!state?.log)return;const seen=new Set();state.log=state.log.filter(entry=>{if(typeof entry?.text!=='string'||!entry.text.includes('读取自动存档'))return true;if(seen.has(entry.text))return false;seen.add(entry.text);return true});const log=$('log');if(log)log.innerHTML=state.log.slice(0,6).map(entry=>`<div class="log-item"><time>${entry.time}</time>${entry.text}</div>`).join('');saveGame()}
 compactLoadLogs();
+const bindDragBase=bindDrag;
+let boundDragCard=null;
+bindDrag=function(){const card=$('cardWrap')?.querySelector('.decision-card');if(!card||card===boundDragCard)return;boundDragCard=card;bindDragBase()};
 const claimQuestBase=claimQuest;
 claimQuest=function(){if(!state.quest?.complete)return;claimQuestBase();const cappedHp=clampStateValue('hp',state.hp);if(cappedHp!==state.hp){state.hp=cappedHp;render();saveGame()}};
 document.getElementById('claimMission').onclick=claimQuest;
