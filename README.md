@@ -43,4 +43,6 @@ python -m http.server 8877 --bind 127.0.0.1
 
 调试时调用 `QingyunStoryAPI.diagnostics().resonances` 可查看当前已激活的共鸣 ID。
 
+也可以用 `QingyunStoryAPI.setArtifactResonance('自定义共鸣', {name:'共鸣名', requires:['moonLamp','beastHorn'], combatBonus:4})` 临时新增共鸣，用 `removeArtifactResonance()` 清除。
+
 调试时也可调用 `QingyunStoryAPI.setArtifactReward('古洞机缘', 'right', 'moonLamp')` 临时修改奖励路线，使用 `removeArtifactReward()` 清除。
