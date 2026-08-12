@@ -580,6 +580,8 @@ document.getElementById('musicVolume').oninput=event=>{musicVolume=Number(event.
 document.getElementById('techniqueButton').onclick=()=>showSystem('technique');document.getElementById('inventoryButton').onclick=()=>showSystem('inventory');
 document.getElementById('breakthroughButton').onclick=attemptBreakthrough;
 document.getElementById('claimMission').onclick=claimQuest;
+const chooseGuarded=choose;
+choose=function(side){const event=currentEvent();if(side==='left'&&event?.lockedLeft){showBlocked(event.blockHint);return}chooseGuarded(side)};
 document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='s'){event.preventDefault();exportSave();return}if(event.key==='Escape'&&!$('artifactInspector').classList.contains('hidden')){closeArtifactInspector();return}if(event.key==='Escape'&&!$('relationModal').classList.contains('hidden')){closeRelationshipBook();return}if(event.repeat||event.target.matches('input,button')||!$('modal').classList.contains('hidden')||!$('relationModal').classList.contains('hidden'))return;const key=event.key.toLowerCase();if(key==='arrowleft'||key==='a')choose('left');if(key==='arrowright'||key==='d')choose('right');if(key==='arrowup'||key==='w')choose('up')});
 function showBlocked(message){$('statusMessage').textContent=message;const card=$('cardWrap').querySelector('.decision-card');card.style.opacity='1';card.style.transition='transform .12s';card.style.transform='translateX(-18px) rotate(-2deg)';setTimeout(()=>{card.style.transform='translateX(12px) rotate(1deg)'},120);setTimeout(()=>{card.style.transform='rotate(-.6deg)'},240);tone(110,.16,'sawtooth',.02)}
 function currentEvent(){
