@@ -95,6 +95,9 @@ for (const [eventType, condition] of Object.entries(config.eventConditions || {}
       throw new Error(`unknown event condition artifact: ${eventType} -> ${value}`);
     }
   }
+  if ('minYear' in condition && 'maxYear' in condition && Number(condition.minYear) > Number(condition.maxYear)) {
+    throw new Error(`event condition year range is invalid: ${eventType}`);
+  }
 }
 
 console.log(`Config validation passed: ${Object.keys(config.artifacts || {}).length} artifacts.`);
