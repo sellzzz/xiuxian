@@ -19,6 +19,7 @@
 window.QINGYUN_STORY_OVERRIDES = {
   relationshipEvents: {},
   influenceRules: {},
+  eventConditions: {},
   artifactRewards: {'古洞机缘': {right: 'moonLamp'}, '后山巡夜': {right: 'beastHorn'}, '秘境裂隙': {right: 'frostNeedle'}, '万宝商舟': {left: 'spiritGourd'}, '古战场残魂': {right: 'cloudSeal'}, '法宝器灵': {right: 'starCompass'}},
   resonances: {
     moonHorn: {name:'月角同鸣', requires:['moonLamp','beastHorn'], description:'月华与兽魂相互牵引：战力 +5、气血恢复 +1、打坐效率 +5%。', combatBonus:5, recovery:1, meditationScale:1.05},

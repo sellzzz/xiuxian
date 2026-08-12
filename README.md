@@ -43,6 +43,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 事件还支持 `requiresConfiguredArtifact:'moonLamp'`，只有获得指定配置法宝后才会进入卡池；适合编写法宝专属支线。
 
+后续剧情也可以用 `QingyunStoryAPI.setEventCondition('外门讲法',{minYear:3,requiresTalent:true})` 覆盖卡牌条件；支持年份、境界、人物、法宝、灵根、道途和状态等字段。使用 `removeEventCondition()` 可恢复默认条件。
+
 编写后续剧情时可调用只读接口 `QingyunStoryAPI.artifactCatalog()`，获得每件法宝的 ID、名称、是否已获得、是否有主动技能及关联共鸣 ID，适合用来生成剧情条件、提示文本或调试面板。
 
 剧情奖励可在 `artifactRewards` 中按“卡牌类型 + left/right”配置，例如 `{ '古洞机缘': { right: 'moonLamp' } }`；玩家选择该方向时会自动获得法宝。
