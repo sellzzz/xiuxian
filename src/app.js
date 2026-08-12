@@ -659,3 +659,9 @@ render=function(){normalizeRuntimeState();renderWithStateNormalization()};
 const stateRepaired=normalizeRuntimeState();
 render();
 if(stateRepaired)saveGame();
+function renderMusicVolume(){const input=$('musicVolume'),output=$('musicVolumeValue');if(!input)return;const value=Math.round(Number(input.value)||0);input.setAttribute('aria-valuetext',`音乐音量 ${value}%`);if(output)output.textContent=`${value}%`}
+const loadMusicSettingsWithVolumeFeedback=loadMusicSettings;
+loadMusicSettings=function(){loadMusicSettingsWithVolumeFeedback();renderMusicVolume()};
+const musicVolumeInput=$('musicVolume');
+if(musicVolumeInput){const musicVolumeInputHandler=musicVolumeInput.oninput;musicVolumeInput.oninput=event=>{musicVolumeInputHandler?.(event);renderMusicVolume()}}
+renderMusicVolume();
