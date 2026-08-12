@@ -66,7 +66,7 @@ foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards
   }
 }
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'showArtifactActivation', 'tickArtifactCooldowns', 'useArtifact(id)', 'artifactCooldowns?.[id]', 'LEGACY_MUSIC_VOLUME_KEY', 'music-volume-v2')) {
+foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'showArtifactActivation', 'tickArtifactCooldowns', 'useArtifact(id)', 'artifactCooldowns?.[id]', 'active.label', 'LEGACY_MUSIC_VOLUME_KEY', 'music-volume-v2')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
   }
