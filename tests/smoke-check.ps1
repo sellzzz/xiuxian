@@ -60,7 +60,7 @@ foreach ($marker in @('active:', 'cost:{qi:12}', 'cooldown:3')) {
 }
 
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
-foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing story config marker: $marker"
   }
