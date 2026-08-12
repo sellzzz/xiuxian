@@ -342,7 +342,7 @@ function sectEstateMarkup(){if((state.yearsElapsed||0)<60&&!state.sectEstate)ret
 function showSystem(){
  if(!state.unlocked)return;
  const techniqueEquipped=state.techniqueEquipped,techniqueId=selectedTechniqueId(),techniqueDef=techniqueInfo(),technique=techniqueStage(),weaponEquipped=state.weaponEquipped,weapon=weaponInfo(),inventory=state.inventory,rice=inventory.rice,pills=inventory.qiPill||0,charms=inventory.heartCharm||0,healingPills=inventory.healingPill||0,rewindCharms=inventory.rewindCharm||0,cores=inventory.beastCore||0,breakthroughPills=inventory.breakthroughPill||0,marrowPills=inventory.marrowPill||0,isOuter=state.rank!=='杂役弟子';
- const count=2+ownedTechniqueIds().length+(state.innateTalent?1:0)+(state.bondBoon?1:0)+(state.secretArtifact?1:0)+(rice>0?1:0)+(pills>0?1:0)+(charms>0?1:0)+(healingPills>0?1:0)+(rewindCharms>0?1:0)+(cores>0?1:0)+(breakthroughPills>0?1:0)+(marrowPills>0?1:0);
+ const configuredArtifactCount=(state.artifacts||[]).filter(id=>artifactOverrides[id]).length,count=2+ownedTechniqueIds().length+configuredArtifactCount+(state.innateTalent?1:0)+(state.bondBoon?1:0)+(state.secretArtifact?1:0)+(rice>0?1:0)+(pills>0?1:0)+(charms>0?1:0)+(healingPills>0?1:0)+(rewindCharms>0?1:0)+(cores>0?1:0)+(breakthroughPills>0?1:0)+(marrowPills>0?1:0);
  const mastery=techniqueMasteryValue(),masteryProgress=technique.next?Math.round((mastery-technique.floor)/(technique.next-technique.floor)*100):100,masteryLabel=technique.next?`${mastery} / ${technique.next}`:'80 / 80 · 已大成';
  $('systemPanel').classList.remove('hidden-panel');$('systemTitle').textContent=`修行栏 · 贡献 ${state.contribution}`;
  const systemEyebrow=document.querySelector('.system-panel .eyebrow');if(systemEyebrow)systemEyebrow.textContent=`青云宗 · ${state.rank}`;
