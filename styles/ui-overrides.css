@@ -148,6 +148,7 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.meditation-backdrop{animation:none;opacity:.72}.meditation-toast{animation:none;opacity:1;transform:translate(-50%,-10px)}}
 .volume-control output{min-width:28px;color:#9a7045;font-size:10px;font-variant-numeric:tabular-nums;text-align:right}
 .decision-card:focus-visible{outline:2px solid #b78945;outline-offset:5px;box-shadow:0 0 0 5px #b7894526,0 18px 38px #64472d20}
+.event-condition{display:block;margin:7px auto 0;padding:4px 8px;border:1px solid #d8c19d;border-radius:12px;background:#f7eddb;color:#9a7448;font-size:8px;line-height:1.35;letter-spacing:.3px}
 @media(max-width:760px){.game{padding-top:max(21px,env(safe-area-inset-top));padding-bottom:max(38px,env(safe-area-inset-bottom))}}
 
 .turn #topLife.critical{color:#b74432;text-shadow:0 0 8px #c75d4844}
