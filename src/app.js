@@ -611,7 +611,7 @@ function currentEvent(){
  if(year>=70&&!estate.crisisResolved)return currentSectCrisisEvent();
  if(year>=75&&!later.demonRealm)return demonRealmEvent;
  if(year>=90&&!later.ascension)return ascensionEvent;
- return events[state.eventIndex]
+ const queuedEvent=events[state.eventIndex];if(queuedEvent&&eventAvailable(queuedEvent,year))return queuedEvent;const nextEventIndex=pickEvent();state.eventIndex=nextEventIndex;return events[nextEventIndex]||events[0]
 }
 function formatChanges(changes){const labels={qi:'灵力',hp:'气血',fame:'声望',stone:'灵石',life:'寿元',heart:'道心',contribution:'贡献'},parts=[];Object.entries(changes||{}).forEach(([key,value])=>{if(value!==0){const projected=typeof state?.[key]==='number'?Math.max(0,state[key]+Number(value)):null;parts.push(`${labels[key]||key} ${value>0?'+':''}${value}${projected===null?'':`（预计 ${projected}）`}`)}});return parts.length?parts.join(' · '):'无属性变化'}
 function artifactRewardText(event,side){const reward=event?.grantArtifact||artifactRewards[event?.type]?.[side];const ids=Array.isArray(reward)?reward:[reward];const names=ids.filter(id=>artifactOverrides[id]).map(id=>artifactOverrides[id].name||id);return names.length?`获得法宝：${names.join('、')}`:''}
