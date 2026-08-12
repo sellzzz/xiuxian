@@ -147,3 +147,4 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 
 .turn #topLife.critical{color:#b74432;text-shadow:0 0 8px #c75d4844}
 .scene[aria-busy="true"]{pointer-events:none}
+.technique-affinity{display:block;margin-top:4px;color:#6f8d67;font-size:9px;line-height:1.35}.technique-affinity.mismatched{color:#b45f4d}.system-card .technique-affinity{grid-column:2;font-size:9px}
