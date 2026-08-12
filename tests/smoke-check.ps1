@@ -41,7 +41,9 @@ $markers = @(
   'src/app.js',
   'id="artifactRack"',
   'id="relationModal"',
-  'id="musicToggle"'
+  'id="musicToggle"',
+  'id="artifactInspector"',
+  'id="removeArtifactButton"'
 )
 foreach ($marker in $markers) {
   if ($html.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
@@ -56,7 +58,7 @@ foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'artifactRewards
   }
 }
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave')) {
+foreach ($marker in @('grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'migrateSave', 'inspectArtifact', 'removeInspectedArtifact')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
   }
