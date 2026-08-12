@@ -27,15 +27,15 @@ for (const [id, artifact] of Object.entries(config.artifacts || {})) {
   if ('meditationScale' in artifact && Number(artifact.meditationScale) <= 0) {
     throw new Error(`artifact meditationScale must be positive: ${id}`);
   }
-  if (artifact.active) {
-    if (typeof artifact.active !== 'object') throw new Error(`invalid artifact active rule: ${id}`);
+  if ('active' in artifact) {
+    if (!artifact.active || typeof artifact.active !== 'object' || Array.isArray(artifact.active)) throw new Error(`invalid artifact active rule: ${id}`);
     for (const field of ['label', 'hint']) {
       if (field in artifact.active && typeof artifact.active[field] !== 'string') {
         throw new Error(`artifact active ${field} must be text: ${id}`);
       }
     }
-    if (artifact.active.cost && typeof artifact.active.cost !== 'object') throw new Error(`invalid artifact active cost: ${id}`);
-    if (artifact.active.effect && typeof artifact.active.effect !== 'object') throw new Error(`invalid artifact active effect: ${id}`);
+    if (artifact.active.cost && (typeof artifact.active.cost !== 'object' || Array.isArray(artifact.active.cost))) throw new Error(`invalid artifact active cost: ${id}`);
+    if (artifact.active.effect && (typeof artifact.active.effect !== 'object' || Array.isArray(artifact.active.effect))) throw new Error(`invalid artifact active effect: ${id}`);
     if ('cooldown' in artifact.active && (!Number.isFinite(Number(artifact.active.cooldown)) || Number(artifact.active.cooldown) <= 0)) {
       throw new Error(`artifact active cooldown must be positive: ${id}`);
     }
