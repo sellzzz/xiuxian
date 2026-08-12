@@ -146,3 +146,4 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 @media(max-width:760px){.game{padding-top:max(21px,env(safe-area-inset-top));padding-bottom:max(38px,env(safe-area-inset-bottom))}}
 
 .turn #topLife.critical{color:#b74432;text-shadow:0 0 8px #c75d4844}
+.scene[aria-busy="true"]{pointer-events:none}
