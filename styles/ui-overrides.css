@@ -50,6 +50,7 @@ body.tribulation-bg{background-image:linear-gradient(180deg,#171225a8 0%,#261b3d
 .card-option{display:none;margin:14px auto 0;padding:10px 13px;max-width:320px;border-left:2px solid var(--red);background:#f4e7d7;color:#806b5c;font-size:12px;line-height:1.7;text-align:left}
 .swipe-hint{padding:8px 12px;border-radius:20px;background:#efe3d4;color:#a18d79;display:inline-block}
 .side-choice{flex:0 0 112px;border-radius:18px;background:linear-gradient(145deg,#fcf8f0,#f0e3d1);font-weight:600}
+.side-choice[aria-disabled="true"]{border-style:dashed;color:#a99582;opacity:.72}
 .side-choice span{transition:transform .2s}
 .side-choice.left:hover span{transform:translateX(-5px)}
 .side-choice.right:hover span{transform:translateX(5px)}

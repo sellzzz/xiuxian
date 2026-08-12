@@ -45,6 +45,7 @@ $markers = @(
   'id="exportSave"',
   'id="importSaveButton"',
   'id="importSaveInput"',
+  'aria-disabled',
   'id="artifactInspector"',
   'id="removeArtifactButton"',
   'id="useArtifactButton"'
