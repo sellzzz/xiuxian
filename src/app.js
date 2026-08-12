@@ -653,3 +653,9 @@ document.getElementById('claimMission').onclick=claimQuest;
 renderQuest();
 renderRelations();
 setTimeout(()=>{const status=$('saveStatus');if(status&&!status.classList.contains('saving')){status.setAttribute('aria-busy','false');status.textContent='● 已保存'}},260);
+function normalizeRuntimeState(){if(!state)return false;let changed=false;const defaults={qi:0,hp:1,fame:0,stone:0,life:0,heart:0,contribution:0};Object.entries(defaults).forEach(([key,fallback])=>{const raw=Number(state[key]);let value=Number.isFinite(raw)?Math.max(0,raw):fallback;if(key==='hp')value=Math.min(100,Math.max(1,value));if(value!==state[key]){state[key]=value;changed=true}});if(state.relations&&typeof state.relations==='object'){Object.keys(state.relations).forEach(key=>{const raw=Number(state.relations[key]),value=Number.isFinite(raw)?Math.max(-100,Math.min(100,raw)):0;if(value!==state.relations[key]){state.relations[key]=value;changed=true}})}return changed}
+const renderWithStateNormalization=render;
+render=function(){normalizeRuntimeState();renderWithStateNormalization()};
+const stateRepaired=normalizeRuntimeState();
+render();
+if(stateRepaired)saveGame();
