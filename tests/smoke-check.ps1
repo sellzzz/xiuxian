@@ -90,6 +90,11 @@ foreach ($marker in @('enhanceEventCodexFilters', 'event-codex-filter', 'event-c
     throw "Missing event codex filter marker: $marker"
   }
 }
+foreach ($marker in @('renderEventRouteBadge', 'event-route-badge', 'eventRouteBadge')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing event route badge marker: $marker"
+  }
+}
 
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
