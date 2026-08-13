@@ -1,0 +1,12 @@
+/* 移动端系统面板：内容较多时在面板内部滚动，避免撑长整页。 */
+@media (max-width: 760px) {
+  .system-panel {
+    max-height: calc(100vh - 118px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .system-panel-head {
+    top: -15px;
+  }
+}
