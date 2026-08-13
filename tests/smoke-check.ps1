@@ -111,6 +111,11 @@ foreach ($marker in @('repairSceneConsistency', 'sceneConsistencyRepaired', "sta
     throw "Missing save consistency marker: $marker"
   }
 }
+foreach ($marker in @('ensureLifePillState', 'useLifePill', 'buyShopItemWithLifePill', 'enhanceLifePillPanel', 'life-pill-item', 'buyLifePill')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing life pill marker: $marker"
+  }
+}
 foreach ($marker in @('formatChangeRisk', 'formatChangesBase', 'choiceLifeCost()', 'projected<=0')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing choice risk marker: $marker"
