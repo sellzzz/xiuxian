@@ -678,7 +678,7 @@ let saveFeedbackToken=0;
 saveGame=function(){const status=$('saveStatus'),token=++saveFeedbackToken;if(status){status.setAttribute('aria-busy','true');status.textContent='● 保存中'}saveGameBase();setTimeout(()=>{if(token!==saveFeedbackToken)return;if(status){status.setAttribute('aria-busy','false');if(status.textContent!=='存档不可用')status.textContent='● 已保存'}},240)};
 const bindDragBase=bindDrag;
 let boundDragCard=null;
-bindDrag=function(){const card=$('cardWrap')?.querySelector('.decision-card');if(!card||card===boundDragCard)return;boundDragCard=card;bindDragBase();card.addEventListener('lostpointercapture',recoverInterruptedDrag)};
+bindDrag=function(){const card=$('cardWrap')?.querySelector('.decision-card');if(!card||card===boundDragCard)return;boundDragCard=card;bindDragBase();card.addEventListener('lostpointercapture',()=>{card.onpointercancel?.();recoverInterruptedDrag()})};
 function recoverInterruptedDrag(){const card=$('cardWrap')?.querySelector('.decision-card');if(!card)return;card.classList.remove('dragging');card.style.transition='transform .25s,opacity .25s';card.style.transform='rotate(-.6deg)';card.style.opacity='1';$('dragPreview')?.classList.remove('visible','left','right','up','blocked');if(!choiceInProgress&&!choiceCommitPending){document.querySelector('.scene')?.setAttribute('aria-busy','false')}}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')recoverInterruptedDrag()});window.addEventListener('pagehide',recoverInterruptedDrag);
 const renderRelationsBase=renderRelations;
