@@ -101,6 +101,11 @@ foreach ($marker in @('actualTurnChangeText', 'action-result-detail', 'action-re
     throw "Missing action result detail marker: $marker"
   }
 }
+foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing aptitude strategy marker: $marker"
+  }
+}
 foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadyStyles', 'data-mission-state')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing mission feedback marker: $marker"
