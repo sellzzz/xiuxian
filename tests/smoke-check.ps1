@@ -28,6 +28,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'config/story-config.js syntax check failed' }
   & node tests/validate-config.js
   if ($LASTEXITCODE -ne 0) { throw 'story configuration validation failed' }
+  & node tests/life-rule-test.js
+  if ($LASTEXITCODE -ne 0) { throw 'life rule validation failed' }
 } finally {
   Pop-Location
 }
