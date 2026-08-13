@@ -46,6 +46,17 @@
   transform: none;
 }
 
+.side-choice:focus-visible {
+  outline: 3px solid #b78945;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px #b7894526, 0 8px 20px #64472d18;
+}
+
+.side-choice[aria-disabled="true"]:focus-visible {
+  outline-color: #a85f43;
+  box-shadow: 0 0 0 6px #a85f4326, 0 8px 20px #64472d18;
+}
+
 .decision-card.life-exhausted {
   border-color: #bc917d;
   box-shadow: 0 14px 30px #7b4d3a18, inset 0 0 0 1px #d9b3a044;
