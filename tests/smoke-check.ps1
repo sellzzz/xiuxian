@@ -95,6 +95,11 @@ foreach ($marker in @('renderEventRouteBadge', 'event-route-badge', 'eventRouteB
     throw "Missing event route badge marker: $marker"
   }
 }
+foreach ($marker in @('actualTurnChangeText', 'action-result-detail', 'action-result-preview', 'ensureActionResultDetailStyles')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing action result detail marker: $marker"
+  }
+}
 
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
