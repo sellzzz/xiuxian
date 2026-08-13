@@ -78,6 +78,8 @@
 .artifact-rack::after {
   content: '点击查看';
   display: block;
+  flex: 0 0 auto;
+  pointer-events: none;
   color: #9a704e;
   font-size: 8px;
   letter-spacing: 1px;
@@ -87,6 +89,15 @@
 
 .artifact-rack.has-overflow::after {
   content: '← 滑动查看 →';
+}
+
+@media (max-width: 760px) {
+  .artifact-rack {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scrollbar-width: thin;
+  }
 }
 
 @media (min-width: 761px) {
