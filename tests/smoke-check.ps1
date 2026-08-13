@@ -131,6 +131,11 @@ foreach ($marker in @('formatChangeRisk', 'formatChangesBase', 'choiceLifeCost()
     throw "Missing choice risk marker: $marker"
   }
 }
+foreach ($marker in @('lifeCostPreview(){', 'choicePreviewWithLifeForecast', 'setDragPreviewWithLifeForecast', 'formatYears(remaining)')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing life forecast marker: $marker"
+  }
+}
 foreach ($marker in @('markChoiceRisk', 'choice-risk', 'choiceRiskStyles', 'data-risk')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing choice risk style marker: $marker"
