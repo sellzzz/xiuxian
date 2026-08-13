@@ -68,7 +68,7 @@ foreach ($marker in @('active:', 'cost:{qi:12}', 'cooldown:3')) {
 }
 
 $storyConfig = Get-Content (Join-Path $root 'config/story-config.js') -Raw -Encoding UTF8
-foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'eventConditions:', 'artifactRewards:', 'resonances:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'heartMirror:', 'heartMoon:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
+foreach ($marker in @('relationshipEvents:', 'influenceRules:', 'eventConditions:', 'eventContent:', 'legacyBoons:', 'artifactRewards:', 'resonances:', 'artifacts:', 'moonLamp:', 'beastHorn:', 'heartMirror:', 'heartMoon:', 'breakthroughBonus:', 'meditationScale:', 'active:', 'cooldown:')) {
   if ($storyConfig.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing story config marker: $marker"
   }
@@ -121,7 +121,7 @@ foreach ($marker in @('cultivationStageInfo', 'renderCultivationStage', 'cultiva
     throw "Missing cultivation stage marker: $marker"
   }
 }
-foreach ($marker in @('causal:{name:', 'legacyBoonUnlocked', 'legacy-causal-boon', 'meta.endings.length>=5', 'applyLegacyBoon')) {
+foreach ($marker in @('legacyBoonDefaults', 'legacyBoons=Object.fromEntries', 'causal:{name:', 'legacyBoonUnlocked', 'legacy-causal-boon', 'meta.endings.length>=5', 'applyLegacyBoon')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing legacy boon marker: $marker"
   }
