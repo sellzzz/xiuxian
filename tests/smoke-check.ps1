@@ -37,6 +37,7 @@ $markers = @(
   'styles/base.css',
   'styles/visual-polish.css',
   'styles/ui-overrides.css',
+  'styles/ui-overrides.css?v=27',
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=4',
