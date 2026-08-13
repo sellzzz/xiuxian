@@ -9,6 +9,14 @@
   .system-panel-head {
     top: -15px;
   }
+
+  .system-panel {
+    padding-bottom: calc(15px + 76px + env(safe-area-inset-bottom));
+  }
+
+  .artifact-inspector {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
 }
 
 /* 寿元耗尽仍保留点击反馈，但明确告诉玩家本轮无法推进。 */
