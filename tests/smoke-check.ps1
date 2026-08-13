@@ -83,7 +83,7 @@ foreach ($marker in @("requiresConfiguredArtifact:'heartMirror'", 'grantArtifact
 }
 
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodexCategoryStyles', 'lifeExhaustedNotice', 'action-unavailable', 'eventLockBadge', 'event-lock-badge', 'prologue-guide-tip', 'has-overflow')) {
+foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodexCategoryStyles', 'lifeExhaustedNotice', 'action-unavailable', 'eventLockBadge', 'event-lock-badge', 'prologue-guide-tip', 'has-overflow', 'preserveItemStatus', 'rebindItemFeedback')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing event codex category marker: $marker"
   }
