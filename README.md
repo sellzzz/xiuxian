@@ -50,6 +50,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 后续剧情也可以用 `QingyunStoryAPI.setEventCondition('外门讲法',{minYear:3,requiresTalent:true})` 覆盖卡牌条件；支持年份、境界、人物、法宝、灵根、道途和状态等字段。使用 `removeEventCondition()` 可恢复默认条件。
 
+改写卡牌文案可使用 `QingyunStoryAPI.setEventContent('外门讲法',{title:'新的标题',copy:'新的描述',left:'左侧选项',right:'右侧选项',a:{fame:5}})`；支持标题、正文、引语、左右选项、结果属性和锁定提示等字段。使用 `removeEventContent()` 可恢复默认内容，事件的主线条件与好感规则仍保持独立。
+
 编写后续剧情时可调用只读接口 `QingyunStoryAPI.artifactCatalog()`，获得每件法宝的 ID、名称、是否已获得、是否有主动技能及关联共鸣 ID，适合用来生成剧情条件、提示文本或调试面板。
 
 剧情奖励可在 `artifactRewards` 中按“卡牌类型 + left/right”配置，例如 `{ '古洞机缘': { right: 'moonLamp' } }`；玩家选择该方向时会自动获得法宝。
