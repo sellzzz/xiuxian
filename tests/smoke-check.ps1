@@ -37,11 +37,11 @@ $markers = @(
   'styles/base.css',
   'styles/visual-polish.css',
   'styles/ui-overrides.css',
-  'styles/ui-overrides.css?v=30',
+  'styles/ui-overrides.css?v=31',
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=5',
-  'src/app.js?v=113',
+  'src/app.js?v=114',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -106,7 +106,7 @@ foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
     throw "Missing aptitude strategy marker: $marker"
   }
 }
-foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge', 'showMeditationResult', 'meditation-result-toast', 'techniqueMasteryValue()', 'masteryText', 'lifeCostPreview', "state.life<choiceLifeCost()", 'refreshLifePillCopy', 'lifeResourceCap()', 'renderLifeActionState', 'action-unavailable', 'life-exhausted')) {
+foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge', 'showMeditationResult', 'meditation-result-toast', 'techniqueMasteryValue()', 'masteryText', 'lifeCostPreview', "state.life<choiceLifeCost()", 'refreshLifePillCopy', 'lifeResourceCap()', 'renderLifeActionState', 'action-unavailable', 'life-exhausted', 'renderLoadoutSummary', 'loadout-summary')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing life cap marker: $marker"
   }

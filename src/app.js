@@ -703,6 +703,8 @@ if(musicVolumeInput){const musicVolumeInputHandler=musicVolumeInput.oninput;musi
 renderMusicVolume();
 const showSystemBase=showSystem;
 showSystem=function(){const panel=$('systemPanel'),scrollTop=panel?.scrollTop||0;showSystemBase();if(panel)panel.scrollTop=scrollTop};
+function renderLoadoutSummary(){const panel=$('systemPanel');if(!panel||!state?.unlocked)return;let summary=$('loadoutSummary');if(!summary){summary=document.createElement('div');summary.id='loadoutSummary';summary.className='loadout-summary';summary.setAttribute('role','status');summary.setAttribute('aria-live','polite');panel.querySelector('.system-panel-head')?.after(summary)}const technique=state.techniqueEquipped?`功法：《${techniqueInfo().name}》`:'功法：未装备',weapon=state.weaponEquipped?`兵刃：${weaponInfo().name}`:'兵刃：未装备',artifacts=(state.artifacts||[]).filter(id=>artifactOverrides[id]).length;summary.textContent=`${technique} · ${weapon} · 法宝 ${artifacts} 件`}
+const showSystemWithLoadoutSummary=showSystem;showSystem=function(){showSystemWithLoadoutSummary();renderLoadoutSummary()};renderLoadoutSummary();
 let resumeMusicOnVisible=false;
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){resumeMusicOnVisible=musicPlaying;if(musicPlaying)stopMusic()}else if(resumeMusicOnVisible&&musicEnabled){resumeMusicOnVisible=false;startMusic()}});
 const getAudioBase=getAudio;
