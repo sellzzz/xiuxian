@@ -116,6 +116,11 @@ foreach ($marker in @('ensureLifePillState', 'useLifePill', 'buyShopItemWithLife
     throw "Missing life pill marker: $marker"
   }
 }
+foreach ($marker in @('cultivationStageInfo', 'renderCultivationStage', 'cultivationStage', 'cultivation-stage-toast')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing cultivation stage marker: $marker"
+  }
+}
 foreach ($marker in @('formatChangeRisk', 'formatChangesBase', 'choiceLifeCost()', 'projected<=0')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing choice risk marker: $marker"
