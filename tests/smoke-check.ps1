@@ -115,7 +115,7 @@ foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene'
     throw "Missing life cap marker: $marker"
   }
 }
-foreach ($marker in @('showBlockedWithToast', 'blocked-choice-toast', 'aria-live')) {
+foreach ($marker in @('showBlockedWithToast', 'blocked-choice-toast', 'aria-live', 'save verification failed', "setAttribute('role','alert')")) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing blocked choice feedback marker: $marker"
   }
@@ -125,7 +125,7 @@ foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadySty
     throw "Missing mission feedback marker: $marker"
   }
 }
-foreach ($marker in @('repairSceneConsistency', 'sceneConsistencyRepaired', "state.scene==='main'", "state.scene==='prologue'")) {
+foreach ($marker in @('repairSceneConsistency', 'sceneConsistencyRepaired', "state.scene==='main'", "state.scene==='prologue'", 'oneTimeSpecials', 'isOneTimeEvent', 'consumedEvents')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing save consistency marker: $marker"
   }
