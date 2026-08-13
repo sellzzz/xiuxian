@@ -79,6 +79,13 @@ foreach ($marker in @("requiresConfiguredArtifact:'heartMirror'", 'grantArtifact
   }
 }
 
+$appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
+foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodexCategoryStyles')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing event codex category marker: $marker"
+  }
+}
+
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing card codex marker: $marker"
