@@ -126,6 +126,11 @@ foreach ($marker in @('ensureEndingCollectionStyles', 'data-stat="artifacts"', '
     throw "Missing ending collection marker: $marker"
   }
 }
+foreach ($marker in @('markChoiceRiskBase', 'aria-describedby', 'eventRouteBadge', 'leftPreview', 'rightPreview')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing choice accessibility marker: $marker"
+  }
+}
 
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
