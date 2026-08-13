@@ -9,6 +9,9 @@ vm.runInNewContext(source, sandbox, { filename: configPath });
 
 const config = sandbox.window.QINGYUN_STORY_OVERRIDES;
 if (!config || typeof config !== 'object') throw new Error('story config did not initialize');
+if (!Array.isArray(config.oneTimeEvents) || config.oneTimeEvents.some(type => typeof type !== 'string' || !type.trim())) {
+  throw new Error('oneTimeEvents must be an array of non-empty event type names');
+}
 
 const numericFields = ['combatBonus', 'meditationScale', 'recovery', 'breakthroughBonus', 'examBonus'];
 const stateFields = ['qi', 'hp', 'heart', 'fame', 'stone', 'life', 'contribution'];

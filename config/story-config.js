@@ -21,6 +21,7 @@ window.QINGYUN_STORY_OVERRIDES = {
   influenceRules: {},
   eventConditions: {},
   eventContent: {},
+  oneTimeEvents: [],
   legacyBoons: {},
   // 可调整道途面板的预计节点年份；只影响提示，不会改变事件本身的触发规则。
   journeyYears: {promotion:7, trial:13, tribulation:17, inner:20, foundation:30, succession:60, demonRealm:70, ascension:82},
