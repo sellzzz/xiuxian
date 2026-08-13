@@ -29,3 +29,19 @@
   border-color: #bc917d;
   box-shadow: 0 14px 30px #7b4d3a18, inset 0 0 0 1px #d9b3a044;
 }
+
+.life-exhausted-notice {
+  margin: 0 auto 10px;
+  padding: 7px 10px;
+  border: 1px solid #c98d75;
+  border-radius: 7px;
+  background: #fff0e8;
+  color: #a75d48;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.life-exhausted-notice[hidden] {
+  display: none;
+}
