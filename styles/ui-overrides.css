@@ -176,3 +176,5 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 @media(max-width:760px){.turn .cultivation-stage{order:1;font-size:8px;padding:4px 7px}.turn .life-actions-chip{order:2}.turn .save-status{order:3}.turn .music-toggle,.turn .volume-control{order:4}.turn .save-action{order:5}.turn #restart{order:6}.cultivation-stage-toast{top:17%}}
 .system-button.active{box-shadow:0 0 0 2px #b7894526,0 6px 16px #70533a1c}.system-button.active:before{content:'●';font-size:7px;color:#b78945}
 .system-panel-head{position:sticky;top:-18px;z-index:2;background:#fbf5ebf2;padding-top:2px}
+.system-bar.unlocked{display:flex;top:82px}
+@media(max-width:1100px){.system-bar{position:static;display:flex;flex-direction:row;margin-top:10px}.system-bar.unlocked{display:flex}.system-button{flex:1;justify-content:center}}
