@@ -62,3 +62,17 @@
 .event-lock-badge[hidden] {
   display: none;
 }
+
+.quick-guide.prologue-guide {
+  border-color: #b8c4cf;
+  box-shadow: 0 5px 16px #6d809017;
+}
+
+.quick-guide.prologue-guide .prologue-guide-tip {
+  margin: 5px 13px 7px;
+  padding: 6px 8px;
+  border-left: 2px solid #a85f43;
+  background: #fff0e8;
+  color: #a45642;
+  font-weight: 600;
+}
