@@ -85,6 +85,11 @@ foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodex
     throw "Missing event codex category marker: $marker"
   }
 }
+foreach ($marker in @('enhanceEventCodexFilters', 'event-codex-filter', 'event-codex-filter-count', 'dataset.category')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing event codex filter marker: $marker"
+  }
+}
 
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
