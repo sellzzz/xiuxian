@@ -121,6 +121,11 @@ foreach ($marker in @('cultivationStageInfo', 'renderCultivationStage', 'cultiva
     throw "Missing cultivation stage marker: $marker"
   }
 }
+foreach ($marker in @('causal:{name:', 'legacyBoonUnlocked', 'legacy-causal-boon', 'meta.endings.length>=5', 'applyLegacyBoon')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing legacy boon marker: $marker"
+  }
+}
 foreach ($marker in @('formatChangeRisk', 'formatChangesBase', 'choiceLifeCost()', 'projected<=0')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing choice risk marker: $marker"
