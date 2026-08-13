@@ -1,5 +1,9 @@
 /* 移动端系统面板：内容较多时在面板内部滚动，避免撑长整页。 */
 @media (max-width: 760px) {
+  .game {
+    padding-bottom: calc(112px + env(safe-area-inset-bottom));
+  }
+
   .system-panel {
     max-height: calc(100vh - 118px);
     overflow-y: auto;
