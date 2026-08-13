@@ -183,5 +183,6 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 .status-effect-chip:focus-visible{outline:2px solid #b78945;outline-offset:2px}
 @media(max-width:760px){.turn .status-effect-chip{order:2;max-width:min(190px,calc(100vw - 26px));flex:0 1 auto}.turn .life-actions-chip{order:1}.turn #timeLabel{order:0}}
 @media(max-width:760px){.turn .legacy-run-chip,.turn .world-cycle-chip{order:2;min-width:0;max-width:min(170px,calc(100vw - 26px));overflow:hidden;text-overflow:ellipsis}.turn .world-cycle-chip small{flex:0 0 auto}.turn .cultivation-stage{min-width:0;max-width:min(170px,calc(100vw - 26px));overflow:hidden;text-overflow:ellipsis}}
+@media(max-width:760px){.has-system-panel .game{padding-bottom:max(118px,calc(env(safe-area-inset-bottom) + 110px))}.has-system-panel .chronicle{padding-bottom:0}}
 .world-cycle-chip{font:inherit;cursor:pointer}
 .world-cycle-chip:focus-visible{outline:2px solid #b78945;outline-offset:2px}
