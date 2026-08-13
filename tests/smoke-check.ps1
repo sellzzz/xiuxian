@@ -41,7 +41,7 @@ $markers = @(
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=5',
-  'src/app.js?v=117',
+  'src/app.js?v=118',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -106,7 +106,7 @@ foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
     throw "Missing aptitude strategy marker: $marker"
   }
 }
-foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge', 'showMeditationResult', 'meditation-result-toast', 'techniqueMasteryValue()', 'masteryText', 'lifeCostPreview', "state.life<choiceLifeCost()", 'refreshLifePillCopy', 'lifeResourceCap()', 'renderLifeActionState', 'action-unavailable', 'life-exhausted', 'renderLoadoutSummary', 'loadout-summary', 'renderSystemTabs', 'activeSystem', 'saved.activeSystem', 'closeSystemPanel', 'aria-current')) {
+foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge', 'showMeditationResult', 'meditation-result-toast', 'techniqueMasteryValue()', 'masteryText', 'lifeCostPreview', "state.life<choiceLifeCost()", 'refreshLifePillCopy', 'lifeResourceCap()', 'renderLifeActionState', 'action-unavailable', 'life-exhausted', 'renderLoadoutSummary', 'loadout-summary', 'renderSystemTabs', 'activeSystem', 'saved.activeSystem', 'closeSystemPanel', 'pointerdown', 'aria-current')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing life cap marker: $marker"
   }
