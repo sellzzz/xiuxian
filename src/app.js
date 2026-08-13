@@ -605,7 +605,7 @@ function stopMusic(){musicPlaying=false;if(musicTimer){clearInterval(musicTimer)
 document.addEventListener('pointerdown',event=>{getAudio();if(event.target.id!=='musicToggle')startMusic()},{once:true});
 document.getElementById('musicToggle').onclick=()=>{getAudio();musicEnabled=!musicPlaying;try{localStorage.setItem(MUSIC_ENABLED_KEY,musicEnabled?'1':'0')}catch(error){}musicPlaying?stopMusic():startMusic()};
 document.getElementById('musicVolume').oninput=event=>{musicVolume=Number(event.target.value)/100;try{localStorage.setItem(MUSIC_VOLUME_KEY,String(musicVolume))}catch(error){}};
-function closeSystemPanel(){const panel=$('systemPanel');if(!panel||panel.classList.contains('hidden-panel'))return;panel.classList.add('hidden-panel');['techniqueButton','inventoryButton'].forEach(id=>$(id)?.setAttribute('aria-expanded','false'));$('closeSystemPanel')?.focus({preventScroll:true});saveGame()}
+function closeSystemPanel(){const panel=$('systemPanel');if(!panel||panel.classList.contains('hidden-panel'))return;const returnButton=$(state?.activeSystem==='inventory'?'inventoryButton':'techniqueButton');panel.classList.add('hidden-panel');['techniqueButton','inventoryButton'].forEach(id=>$(id)?.setAttribute('aria-expanded','false'));returnButton?.focus({preventScroll:true});saveGame()}
 document.getElementById('techniqueButton').onclick=()=>showSystem('technique');document.getElementById('inventoryButton').onclick=()=>showSystem('inventory');document.getElementById('closeSystemPanel').onclick=closeSystemPanel;
 document.getElementById('breakthroughButton').onclick=attemptBreakthrough;
 document.getElementById('claimMission').onclick=claimQuest;
