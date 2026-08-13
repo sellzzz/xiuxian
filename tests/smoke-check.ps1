@@ -41,7 +41,7 @@ $markers = @(
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=5',
-  'src/app.js?v=108',
+  'src/app.js?v=109',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -106,7 +106,7 @@ foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
     throw "Missing aptitude strategy marker: $marker"
   }
 }
-foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge')) {
+foreach ($marker in @('lifeResourceCap', "key==='life'", 'available=state.scene', 'formatYears(years)', 'choiceLifeCost', 'renderDecisionCostBadge', 'decision-cost-badge', 'showMeditationResult', 'meditation-result-toast')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing life cap marker: $marker"
   }
