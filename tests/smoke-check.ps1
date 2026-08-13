@@ -79,6 +79,12 @@ foreach ($marker in @("requiresConfiguredArtifact:'heartMirror'", 'grantArtifact
   }
 }
 
+foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing card codex marker: $marker"
+  }
+}
+
 if ($appSource.IndexOf('availableEventCount', [StringComparison]::Ordinal) -lt 0) {
   throw 'Missing diagnostics event pool marker'
 }
