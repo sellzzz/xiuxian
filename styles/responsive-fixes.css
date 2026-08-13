@@ -10,3 +10,22 @@
     top: -15px;
   }
 }
+
+/* 寿元耗尽仍保留点击反馈，但明确告诉玩家本轮无法推进。 */
+.side-choice.action-unavailable {
+  border-color: #b88972;
+  color: #a36d5b;
+  opacity: .62;
+  filter: saturate(.55);
+}
+
+.side-choice.action-unavailable:hover,
+.side-choice.action-unavailable:focus-visible {
+  opacity: .82;
+  transform: none;
+}
+
+.decision-card.life-exhausted {
+  border-color: #bc917d;
+  box-shadow: 0 14px 30px #7b4d3a18, inset 0 0 0 1px #d9b3a044;
+}
