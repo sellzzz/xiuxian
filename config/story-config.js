@@ -22,6 +22,33 @@ window.QINGYUN_STORY_OVERRIDES = {
   eventConditions: {},
   eventContent: {},
   oneTimeEvents: [],
+  // 云海裂隙：区域目标数量是完整卡池规划，cards 先放可玩的样例，后续可直接追加卡牌对象。
+  secretRealm: {
+    id: 'cloudRift',
+    name: '云海裂隙',
+    entryWindow: {minYear: 5, maxYear: 7},
+    monthCost: 1,
+    lockedUp: true,
+    regions: {
+      entrance: {name:'秘境入口', target:1, next:'ruins'},
+      ruins: {name:'迷雾废墟', target:25, next:'core'},
+      swamp: {name:'毒蚀沼泽', target:25, next:'core'},
+      core: {name:'核心：核心剑冢', target:35, branches:{left:'immortalStage',right:'spaceStorm'}},
+      immortalStage: {name:'深处：登仙石台', target:10, next:'complete'},
+      spaceStorm: {name:'退路：空间风暴', target:4, next:'complete'}
+    },
+    cards: [
+      {id:'cloud-entry',region:'entrance',type:'云海裂隙·入口',title:'云海裂开一道无声的门',copy:'入口卡在半空，门后传来剑鸣与腐沼的腥气。',quote:'“秘境不问来路，只问你要走哪条路。”',left:'踏入迷雾废墟',right:'进入毒蚀沼泽',a:{heart:2},b:{qi:5},lockedUp:true},
+      {id:'ruins-iron',region:'ruins',type:'迷雾废墟·玄铁',title:'残垣下埋着一截玄铁剑脊',copy:'雾气吞吐间，剑脊仍在微微震动。',left:'挖出玄铁',right:'顺着剑痕深入',a:{stone:12,qi:4},b:{hp:-5,heart:5},lockedUp:true},
+      {id:'ruins-echo',region:'ruins',type:'迷雾废墟·回声',title:'废墟深处传来与你相同的脚步声',copy:'回声像另一个你，在雾中提前做出了选择。',left:'闭目辨位',right:'追上回声',a:{heart:8},b:{hp:-8,qi:12},lockedUp:true},
+      {id:'swamp-lotus',region:'swamp',type:'毒蚀沼泽·青莲',title:'毒雾中浮起一朵青色莲花',copy:'莲心没有毒，花茎却扎在一具古修士的骸骨上。',left:'以灵力隔空采摘',right:'踏入毒潭取花',a:{qi:10,stone:6},b:{hp:-12,heart:10},lockedUp:true},
+      {id:'swamp-beast',region:'swamp',type:'毒蚀沼泽·遗蜕',title:'沼泽底下睁开一只金色竖瞳',copy:'庞大的遗蜕挡住了唯一的干路。',left:'绕行寻找出口',right:'斩断遗蜕',a:{heart:4,stone:8},b:{hp:-15,qi:18},lockedUp:true},
+      {id:'core-sword',region:'core',type:'核心剑冢·无主剑',title:'万剑归墟，唯有一柄断剑仍在等你',copy:'剑冢上空没有风，所有剑尖却同时转向了你。',left:'拔出断剑',right:'接受剑意洗礼',a:{qi:25,heart:-8},b:{hp:-18,heart:18},lockedUp:true},
+      {id:'core-guard',region:'core',type:'核心剑冢·守门人',title:'石门后的残魂问你为何求仙',copy:'它不在意你的答案是否高明，只在意你是否言行一致。',left:'以凡心作答',right:'以道心作答',a:{heart:12,fame:5},b:{qi:18,hp:-8},lockedUp:true},
+      {id:'stage-heaven',region:'immortalStage',type:'登仙石台·天门',title:'石台尽头浮现一线天门',copy:'门后是一步登天的诱惑，也是提前结束此行的代价。',left:'记录天门坐标后退回',right:'触碰天门',a:{heart:16,stone:20},b:{qi:40,hp:-20},lockedUp:true},
+      {id:'storm-escape',region:'spaceStorm',type:'空间风暴·退路',title:'空间风暴撕开了返回青云宗的缝隙',copy:'再迟一月，裂隙就会把你和所有收获一起吞没。',left:'立刻脱身',right:'冒险回收遗物',a:{stone:25,heart:6},b:{hp:-25,qi:22},lockedUp:true}
+    ]
+  },
   legacyBoons: {},
   // 可调整道途面板的预计节点年份；只影响提示，不会改变事件本身的触发规则。
   journeyYears: {promotion:7, trial:13, tribulation:17, inner:20, foundation:30, succession:60, demonRealm:70, ascension:82},
