@@ -41,7 +41,7 @@ $markers = @(
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=5',
-  'src/app.js?v=105',
+  'src/app.js?v=106',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -104,6 +104,11 @@ foreach ($marker in @('actualTurnChangeText', 'action-result-detail', 'action-re
 foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing aptitude strategy marker: $marker"
+  }
+}
+foreach ($marker in @('lifeResourceCap', "key==='life'")) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing life cap marker: $marker"
   }
 }
 foreach ($marker in @('showBlockedWithToast', 'blocked-choice-toast', 'aria-live')) {
