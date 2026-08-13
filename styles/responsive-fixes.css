@@ -45,3 +45,20 @@
 .life-exhausted-notice[hidden] {
   display: none;
 }
+
+.event-lock-badge {
+  display: block;
+  width: fit-content;
+  margin: 6px auto 0;
+  padding: 3px 8px;
+  border: 1px solid #c88963;
+  border-radius: 10px;
+  background: #fff0e8;
+  color: #a45642;
+  font-size: 8px;
+  letter-spacing: .5px;
+}
+
+.event-lock-badge[hidden] {
+  display: none;
+}
