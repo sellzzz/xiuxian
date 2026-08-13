@@ -40,6 +40,8 @@ python -m http.server 8877 --bind 127.0.0.1
 
 法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
 
+功法与灵根会按五行关系计算适配：同属性为“相合”并获得 +6%，灵根生功法属性为“相生”并获得 +3%，被克制为“相克”并获得 -3%，其余不匹配为“相冲”并获得 -4%；青云练气决的五行全适配保持均衡定位。
+
 剧情脚本也可调用 `QingyunStoryAPI.useArtifact('moonLamp')` 主动发动已获得的法宝；未获得、资源不足、无主动效果或仍在冷却时返回 `false`，成功发动返回 `true`，不会绕过规则。
 
 事件还支持 `requiresConfiguredArtifact:'moonLamp'`，只有获得指定配置法宝后才会进入卡池；适合编写法宝专属支线。
