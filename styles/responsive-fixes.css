@@ -75,6 +75,27 @@
   display: none;
 }
 
+.artifact-rack::after {
+  content: '点击查看';
+  display: block;
+  color: #9a704e;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.artifact-rack.has-overflow::after {
+  content: '← 滑动查看 →';
+}
+
+@media (min-width: 761px) {
+  .artifact-rack::after {
+    writing-mode: vertical-rl;
+    margin: 2px auto 0;
+  }
+}
+
 .quick-guide.prologue-guide {
   border-color: #b8c4cf;
   box-shadow: 0 5px 16px #6d809017;
