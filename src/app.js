@@ -180,7 +180,7 @@ function cleanRelationshipChanges(changes={}){return Object.fromEntries(Object.e
 const storyOverrides=window.QINGYUN_STORY_OVERRIDES||{};
 const secretRealmCatalog=storyOverrides.secretRealm||{id:'cloudRift',name:'云海裂隙',entryWindow:{minYear:5,maxYear:7},monthCost:1,lockedUp:true,regions:{},cards:[]};
 const secretRegionCatalog=secretRealmCatalog.regions||{};
-const secretCards=(secretRealmCatalog.cards||[]).map(card=>({...card,lockedUp:true}));
+const secretCards=(window.QINGYUN_SECRET_REALM_CARDS||secretRealmCatalog.cards||[]).map(card=>({...card,type:card.type||card.sourceType,lockedUp:true}));
 Object.entries(storyOverrides.relationshipEvents||{}).forEach(([eventType,branches])=>{relationshipRules[eventType]??={};['left','right'].forEach(side=>{if(branches?.[side])relationshipRules[eventType][side]=cleanRelationshipChanges(branches[side])})});
 Object.entries(storyOverrides.influenceRules||{}).forEach(([source,targets])=>{if(!relationshipKeys.includes(source))return;Object.entries(targets||{}).forEach(([target,ratio])=>{if(relationshipKeys.includes(target)&&target!==source&&Number.isFinite(Number(ratio)))relationshipInfluenceRules[source][target]=Number(ratio)})});
 const artifactOverrides=storyOverrides.artifacts||{};
