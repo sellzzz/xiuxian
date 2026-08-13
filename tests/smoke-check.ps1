@@ -40,7 +40,7 @@ $markers = @(
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=4',
-  'src/app.js?v=101',
+  'src/app.js?v=102',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
