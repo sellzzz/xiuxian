@@ -106,6 +106,11 @@ foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadySty
     throw "Missing mission feedback marker: $marker"
   }
 }
+foreach ($marker in @('repairSceneConsistency', 'sceneConsistencyRepaired', "state.scene==='main'", "state.scene==='prologue'")) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing save consistency marker: $marker"
+  }
+}
 
 foreach ($marker in @('renderEventCodex', 'markEventSeen', 'seenEvents', 'event-codex-sheet', 'renderQuickGuide', 'quick-guide', 'renderLegacyProgressChip', 'legacyRunChip', 'endWithExplorationStats', 'data-stat="explored"')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
