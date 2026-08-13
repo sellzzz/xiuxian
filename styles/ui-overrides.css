@@ -181,3 +181,4 @@ body.scene-path{background-image:radial-gradient(circle at 50% 28%,rgba(218,180,
 /* 可点击的经脉状态入口 */
 .status-effect-chip{font:inherit;cursor:pointer}
 .status-effect-chip:focus-visible{outline:2px solid #b78945;outline-offset:2px}
+@media(max-width:760px){.turn .status-effect-chip{order:2;max-width:min(190px,calc(100vw - 26px));flex:0 1 auto}.turn .life-actions-chip{order:1}.turn #timeLabel{order:0}}
