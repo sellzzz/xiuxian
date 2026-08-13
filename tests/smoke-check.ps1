@@ -37,11 +37,11 @@ $markers = @(
   'styles/base.css',
   'styles/visual-polish.css',
   'styles/ui-overrides.css',
-  'styles/ui-overrides.css?v=27',
+  'styles/ui-overrides.css?v=28',
   'config/story-config.js',
   'src/app.js',
   'config/story-config.js?v=5',
-  'src/app.js?v=104',
+  'src/app.js?v=105',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -104,6 +104,11 @@ foreach ($marker in @('actualTurnChangeText', 'action-result-detail', 'action-re
 foreach ($marker in @('aptitudeStrategy', 'renderAptitudeDetail')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing aptitude strategy marker: $marker"
+  }
+}
+foreach ($marker in @('showBlockedWithToast', 'blocked-choice-toast', 'aria-live')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing blocked choice feedback marker: $marker"
   }
 }
 foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadyStyles', 'data-mission-state')) {
