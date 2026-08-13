@@ -118,7 +118,7 @@ foreach ($marker in @('showBlockedWithToast', 'blocked-choice-toast', 'aria-live
     throw "Missing blocked choice feedback marker: $marker"
   }
 }
-foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadyStyles', 'data-mission-state')) {
+foreach ($marker in @('renderMissionFeedback', 'mission-ready', 'missionReadyStyles', 'data-mission-state', 'resultMessage')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing mission feedback marker: $marker"
   }
