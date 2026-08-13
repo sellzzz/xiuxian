@@ -1,5 +1,14 @@
 /* 移动端系统面板：内容较多时在面板内部滚动，避免撑长整页。 */
 @media (max-width: 760px) {
+  .scene {
+    min-width: 0;
+  }
+
+  .card-wrap {
+    width: calc(100vw - 150px);
+    min-width: 0;
+  }
+
   .game {
     padding-bottom: calc(112px + env(safe-area-inset-bottom));
   }
