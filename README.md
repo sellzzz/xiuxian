@@ -38,7 +38,7 @@ python -m http.server 8877 --bind 127.0.0.1
 
 配置中的 `moonLamp` 会在“古洞机缘”卡牌选择“记录符文”时作为剧情奖励获得；`beastHorn` 会在“后山巡夜”选择“独自追踪”时获得；`frostNeedle`、`spiritGourd`、`cloudSeal`、`starCompass` 分别接入“秘境裂隙”“万宝商舟”“古战场残魂”“法宝器灵”节点；`heartMirror` 会在“心魔低语”选择“斩断心魔”时获得。八件法宝也可用 `QingyunStoryAPI.grantArtifact()` 测试栏位和属性效果。
 
-法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
+法宝也可以配置主动效果：`active:{label:'安神照魄',cost:{qi:12},effect:{heart:8},cooldown:3}`。冷却按行动计算，每次行动半年，因此示例中的 `cooldown:3` 会显示为 3 次行动（1.5 年）。获得法宝后点击左侧栏位，在详情面板中使用；消耗、效果和冷却都会自动存档。`cost` 与 `effect` 支持 `qi`、`hp`、`heart`、`fame`、`stone`、`life`、`contribution` 等状态字段。
 
 功法与灵根会按五行关系计算适配：同属性为“相合”并获得 +6%，灵根生功法属性为“相生”并获得 +3%，被克制为“相克”并获得 -3%，其余不匹配为“相冲”并获得 -4%；青云练气决的五行全适配保持均衡定位。
 
