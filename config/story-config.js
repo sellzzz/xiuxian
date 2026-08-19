@@ -22,6 +22,15 @@ window.QINGYUN_STORY_OVERRIDES = {
   eventConditions: {},
   eventContent: {},
   oneTimeEvents: [],
+  artifactGacha: {
+    ticketName: '机缘签',
+    singleCost: 3,
+    tenCost: 27,
+    pity: 10,
+    duplicateContribution: 8,
+    pool: ['moonLamp','beastHorn','frostNeedle','spiritGourd','cloudSeal','starCompass','warBanner','heartMirror'],
+    rare: ['frostNeedle','cloudSeal','starCompass','warBanner']
+  },
   // 云海裂隙：区域目标数量是完整卡池规划，cards 先放可玩的样例，后续可直接追加卡牌对象。
   secretRealm: {
     id: 'cloudRift',
