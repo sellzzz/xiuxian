@@ -48,7 +48,7 @@ $markers = @(
   'src/app.js',
   'config/story-config.js?v=5',
   'config/secret-realm-cards.js?v=1',
-  'src/app.js?v=127',
+  'src/app.js?v=128',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -86,7 +86,7 @@ foreach ($marker in @("requiresConfiguredArtifact:'heartMirror'", 'grantArtifact
     throw "Missing extensibility marker: $marker"
   }
 }
-foreach ($marker in @('secretRequiresStatuses', 'secretRequiresItems', "card?.style.opacity==='0'", 'recoverInterruptedDrag')) {
+foreach ($marker in @('secretRequiresStatuses', 'secretRequiresItems', "card?.style.opacity==='0'", 'recoverInterruptedDrag', "if(!card.classList.contains('dragging'))return", 'bindDrag();recoverInterruptedDrag()')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing drag recovery marker: $marker"
   }
