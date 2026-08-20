@@ -48,7 +48,7 @@ $markers = @(
   'src/app.js',
   'config/story-config.js?v=5',
   'config/secret-realm-cards.js?v=1',
-  'src/app.js?v=126',
+  'src/app.js?v=127',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -84,6 +84,11 @@ $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
 foreach ($marker in @("requiresConfiguredArtifact:'heartMirror'", 'grantArtifact', 'setArtifactReward', 'artifactBonus', 'artifactEffectSummary', 'artifactRewards', 'artifactRewardText', 'configuredArtifactMarkup', 'artifactCollectionMarkup', 'artifactResonanceMarkup', 'artifactCatalogMarkup', 'artifact-catalog-item', 'artifact-resonance-requirements', 'artifactResonanceText', 'artifactActiveAffordable', 'activeArtifactResonances', 'artifactCatalog()', 'artifactCollector', 'requiresConfiguredArtifact', 'eventConditionOverrides', 'cleanEventCondition', 'artifactOverrides[value]', 'setEventCondition', 'setEventContent', 'removeEventContent', 'eventContentOverrides', 'applyEventContentOverride', 'removeEventCondition', 'configuredCondition', 'Object.keys(configuredCondition).length', 'queuedEvent', 'nextEventIndex', 'eventConditionOverrides[eventType]=cleanEventCondition(condition)', 'eventConditionHint', 'conditionHint', 'const condition={...event,...(eventConditionOverrides[event.type]||{})}', 'clampStateValue', 'claimQuestBase', 'hp:clampStateValue', 'state.realmLevel>=3', 'artifact-resonance-badge', 'artifact-cooldown', 'artifact-collection-summary', 'questStreak', 'questKeeper', 'nextStreakReward', 'currentEventConditions', 'eventConditionElement', 'renderJourney', 'journeyProgressBar', 'renderActionBudget', 'actionBudget', 'toggleLog', 'aptitudePurity', 'updateBreakthroughUIBase', 'renderSwipeAffordance', 'aria-roledescription', 'targetYears', 'journeyYears', 'renderChronicleLog' , 'worldCycleCatalog.find', 'requiresMaster', 'requiresEstate', 'requiresDemonVictory', 'diagnostics=function', 'showQuestReward', 'quest-reward-toast', 'refreshArtifactInspector', 'announceArtifactResonances', 'announceArtifactResonanceLoss', 'cleanArtifactResonance', 'setArtifactResonance', 'removeArtifactResonance', 'resonances:artifactResonanceOverrides', 'resonances:activeArtifactResonances', 'removed={[id]:artifactResonanceOverrides[id]}', 'grantArtifact(id,refresh=true)', 'setArtifactResonance(id,resonance)', 'removeArtifactResonance(id)', 'QingyunStoryAPI.useArtifact=function', 'migrateSave', 'rawState', 'Array.isArray(rawState)', 'forEach(key=>{if(!Array.isArray(saved[key]))saved[key]=[]})', 'exportSave', 'importSaveFile', 'importSaveInput', 'artifact-activation-toast', 'artifact-collection-summary', 'inspectArtifact', 'removeInspectedArtifact', 'useInspectedArtifact', 'showArtifactActivation', 'showArtifactAcquisition', 'achievement-toast', 'meditation-toast', 'showMeditationAnimation(gain=0,recovery=0)', 'resourceLabel(key)', 'resourceMeterMax', 'resourceMeterText', 'wuxingRelations', 'protectInvalidSave', 'notifySaveRecovery', 'showQuestReward', 'quest-reward-toast', 'aria-live', 'aria-valuetext', 'aria-valuenow', 'leftPreview', 'rightPreview', 'showActionResult', 'action-result-toast', 'showRewindAnimation', 'rewind-toast', 'event.ctrlKey||event.metaKey', 'aria-disabled', 'formatChanges', 'projected===null', 'tickArtifactCooldowns', 'cooldownText', 'artifactCooldowns?.[id]', 'active.label', 'setDragPreview', 'resetCard', 'Math.abs(dy)>=Math.abs(dx)', 'swipeHint.textContent=state.scene', 'realmLabel(realmLevel,realmLayer)', 'onpointerenter=show', 'onfocus=show', 'SAVE_VERSION=5', 'LEGACY_MUSIC_VOLUME_KEY', 'music-volume-v2', 'majorRealms.length', 'secretRealmCatalog', 'secretRealmEvent', 'monthCost', 'cloudRift')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing extensibility marker: $marker"
+  }
+}
+foreach ($marker in @('secretRequiresStatuses', 'secretRequiresItems', "card?.style.opacity==='0'", 'recoverInterruptedDrag')) {
+  if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
+    throw "Missing drag recovery marker: $marker"
   }
 }
 
