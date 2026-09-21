@@ -40,7 +40,7 @@ $markers = @(
   'styles/base.css',
   'styles/visual-polish.css',
   'styles/ui-overrides.css',
-  'styles/ui-overrides.css?v=34',
+  'styles/ui-overrides.css?v=35',
   'styles/responsive-fixes.css',
   'styles/responsive-fixes.css?v=1',
   'config/story-config.js',
@@ -48,7 +48,7 @@ $markers = @(
   'src/app.js',
   'config/story-config.js?v=5',
   'config/secret-realm-cards.js?v=1',
-  'src/app.js?v=128',
+  'src/app.js?v=129',
   'id="artifactRack"',
   'id="relationModal"',
   'id="musicToggle"',
@@ -93,7 +93,7 @@ foreach ($marker in @('secretRequiresStatuses', 'secretRequiresItems', "card?.st
 }
 
 $appSource = Get-Content (Join-Path $root 'src/app.js') -Raw -Encoding UTF8
-foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodexCategoryStyles', 'lifeExhaustedNotice', 'action-unavailable', 'eventLockBadge', 'event-lock-badge', 'prologue-guide-tip', 'has-overflow', 'preserveItemStatus', 'rebindItemFeedback')) {
+foreach ($marker in @('eventCategory', 'event-codex-category', 'ensureEventCodexCategoryStyles', 'lifeExhaustedNotice', 'action-unavailable', 'eventLockBadge', 'event-lock-badge', 'prologue-guide-tip', 'has-overflow', 'preserveItemStatus', 'rebindItemFeedback', 'beginnerEventTypes', 'isFirstRun', 'onboardingStage', 'renderOnboardingGuide', 'dataset.onboardingStage')) {
   if ($appSource.IndexOf($marker, [StringComparison]::Ordinal) -lt 0) {
     throw "Missing event codex category marker: $marker"
   }
